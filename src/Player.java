@@ -93,8 +93,8 @@ public class Player implements KeyListener {
     }
 
 
-    public double getForwardVelocity() {
-        return (playerVeloc) - lookDir;
+    public Vector4d getForwardVelocity() {
+        return VectorUtils.subV4d(playerVeloc,lookDir);
     }
 
 
