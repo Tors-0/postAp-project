@@ -15,13 +15,13 @@ public class VerletSolver {
     }
     
     private void updatePositions(double dt) {
-     VerlPhysObjs.forEach(currentObj -> {
+     VerletObject.VerlPhysObjs.forEach(currentObj -> {
        obj.updatePosition(dt);
      })); 
     }
     
     private void applyGravity() {
-      VerlPhysObjs.forEach(currentObj -> {
+      VerletObject.VerlPhysObjs.forEach(currentObj -> {
           obj.accelerate(gravity);
       });
     }
