@@ -7,6 +7,8 @@ public class VerletObject {
   
   private static int objCount;
   
+  public ArrayList<VerletObject> VerlPhysObjs = new ArrayList<VerletObject>();
+  
   public updatePosition(float dt) {
     //Compute last velocity
     velocity = posCurrent - posOld;
@@ -31,5 +33,11 @@ public class VerletObject {
   
   public int getCount() {
     return objCount;
+  }
+  
+  public VerletObject(Vector3d pos) {
+    posCurrent = pos;
+    
+    VerlPhysObjs.add(this);
   }
 }
