@@ -3,8 +3,33 @@ public class VerletObject {
   private Vector3d posOld;
   private Vector3d acceleration;
   
+  private Vector3d velocity;
+  
+  private static int objCount;
   
   public updatePosition(float dt) {
-   Vector3d velocity 
+    //Compute last velocity
+    velocity = posCurrent - posOld;
     
+    //save current pos 
+    posOld = posCurrent;
+    
+    //now perform Verlet integration
+    posCurrent = posdCurrent + velocity + acceleration * dt * dt;
+    
+    //reset acceleration
+    acceleration = {};
   }
+  
+  public void accelerate(Vector2d acc) {
+    acceleration += acc;
+  }
+  
+  {
+    objCount++;
+  }
+  
+  public int getCount() {
+    return objCount;
+  }
+}
