@@ -32,6 +32,7 @@ public class Player implements KeyListener {
         this.yaw = yaw;
         this.pitch = pitch;
         this.roll = roll;
+        this.lookDir = new Vector3d(yaw,pitch,roll);
     }
 
     /**
@@ -50,6 +51,14 @@ public class Player implements KeyListener {
         if (moving) {
             move(new Vector3d(playerVeloc.x,playerVeloc.y,playerVeloc.z), playerVeloc.w);
         }
+    }
+    public Vector3d lookingAtCoords() {
+        Vector3d facing = new Vector3d();
+
+
+
+
+        return facing;
     }
     public Player() {
         xP = 0;
@@ -77,7 +86,7 @@ public class Player implements KeyListener {
     public void keyPressed (KeyEvent e) {
         if (e.getKeyChar() == 'w' || e.getKeyChar() == 'W') {
             System.out.println("w");
-            forwardVelocity += 0.1;
+            playerVeloc = VectorUtils.addV4d(playerVeloc,new Vector4d(lookDir,1));
         } else if (e.getKeyChar() == 'a' || e.getKeyChar() == 'A') {
             System.out.println("a");
 
