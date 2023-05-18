@@ -100,28 +100,32 @@ public final class DrawingPanel extends FileFilter
     private Action left = new AbstractAction(MOVE_L) {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(MOVE_L);
+            //System.out.println(MOVE_L);
+            Client2.p.sides(-5);
         }
     };
     private static final String RIGHT = "Right";
     private Action right = new AbstractAction(RIGHT) {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(RIGHT);
+            //System.out.println(RIGHT);
+            Client2.p.sides(5);
         }
     };
     private static final String UP = "Up";
     private Action up = new AbstractAction(UP) {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(UP);
+            //System.out.println(UP);
+            Client2.p.other(-5);
         }
     };
     private static final String DOWN = "Down";
     private Action down = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(DOWN);
+            //System.out.println(DOWN);
+            Client2.p.other(5);
         }
     };
 

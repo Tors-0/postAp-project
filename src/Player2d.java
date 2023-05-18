@@ -7,21 +7,27 @@ import java.security.Key;
 public class Player2d {
 
     // player location
-    private double lX; // -x left, +x right
-    private double lY; // -y up, +y down
+    private float lX; // -x left, +x right
+    private float lY; // -y up, +y down
     private Vector2d coords;
     private boolean notOnGround;
 
     // player velocity dir
-    private double vX;
-    private double vY;
+    private float vX;
+    private float vY;
     private Vector2d velocity;
 
     // player facing dir
-    private double fX;
-    private double fY;
+    private float fX;
+    private float fY;
+    public void sides(float x) {
+        vX += x;
+    }
+    public void other(float y) {
+        vY += y;
+    }
 
-    public Player2d(double xPos, double yPos, double xVel, double yVel, double xFac, double yFac) {
+    public Player2d(float xPos, float yPos, float xVel, float yVel, float xFac, float yFac) {
         lX = xPos; lY = yPos; coords = new Vector2d(lX, lY);
         vX = xVel; vY = yVel; velocity = new Vector2d(xVel,yVel);
         fX = xFac; fY = yFac;
@@ -36,17 +42,13 @@ public class Player2d {
         coords = new Vector2d(lX,lY);
         vX *= 0.95; vY *= 0.9;
         velocity = new Vector2d(vX,vY);
-        if (vX < .02) vX = 0;
-        if (vY < .02) vY = 0;
+        if (Math.abs(vX) < 0.1) vX = 0;
+        if (Math.abs(vY) < 0.1) vY = 0;
     }
     public Vector2d getCoords() {
         return coords;
     }
-    public void move(Vector2d m) {
-        coords.add(m);
-    }
-    public void addVelocity(double x, double y) {
-        vX += x;
-        vY += y;
+    public Vector2d getVelocity() {
+        return velocity;
     }
 }
