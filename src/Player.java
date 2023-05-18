@@ -86,13 +86,13 @@ public class Player implements KeyListener {
     public void keyPressed (KeyEvent e) {
         if (e.getKeyChar() == 'w' || e.getKeyChar() == 'W') {
             System.out.println("w");
-            playerVeloc = VectorUtils.addV4d(playerVeloc,new Vector4d(lookDir,1));
+            playerVeloc.add(new Vector4d(lookDir,1));
         } else if (e.getKeyChar() == 'a' || e.getKeyChar() == 'A') {
             System.out.println("a");
 
         } else if (e.getKeyChar() == 's' || e.getKeyChar() == 'S') {
             System.out.println("s");
-
+            playerVeloc.sub(new Vector4d(lookDir,1));
         } else if (e.getKeyChar() == 'd' || e.getKeyChar() == 'D') {
             System.out.println("d");
 
@@ -103,7 +103,7 @@ public class Player implements KeyListener {
 
 
     public Vector4d getForwardVelocity() {
-        return VectorUtils.subV4d(playerVeloc,lookDir);
+        return VectorUtils.addV4d(playerVeloc,lookDir);
     }
 
 
