@@ -20,11 +20,16 @@ public class Player2d {
     // player facing dir
     private float fX;
     private float fY;
+    private int sinceLastJump = 20;
+    private int timeBetweenJump = 32; // 20 = 1 sec // min time between player jumps
     public void sides(float x) {
-        vX += x;
+        vX = x;
     }
     public void other(float y) {
-        vY += y;
+        if (sinceLastJump >= timeBetweenJump) {
+            vY = y;
+            sinceLastJump = 0;
+        }
     }
 
     public Player2d(float xPos, float yPos, float xVel, float yVel, float xFac, float yFac) {
@@ -38,9 +43,25 @@ public class Player2d {
         fX = 0; fY = 0;
     }
     public void update() {
+        if (sinceLastJump < timeBetweenJump) sinceLastJump++;
+        if (lX < 2) {
+            lX = 2;
+            vX = -vX;
+        }
+        if (lX > 798) {
+            lX = 798;
+            vX = -vX;
+        }
         lX += vX/20; lY += vY/20;
         coords = new Vector2d(lX,lY);
-        vX *= 0.95; vY *= 0.95;
+        vX *= 0.95;
+        if (lY < 488) {
+            vY += 5;
+        }
+        if (lY >= 488) {
+            vY = (float) -0.8 * vY;
+            lY = 488;
+        }
         velocity = new Vector2d(vX,vY);
         if (Math.abs(vX) < 0.1) vX = 0;
         if (Math.abs(vY) < 0.1) vY = 0;

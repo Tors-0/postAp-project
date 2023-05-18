@@ -96,12 +96,13 @@ public final class DrawingPanel extends FileFilter
 
     // start custom code
 
+    int d = 100; // movement speed in pix/sec
     private static final String MOVE_L = "Left";
     private Action left = new AbstractAction(MOVE_L) {
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(MOVE_L);
-            Client2.p.sides(-5);
+            Client2.p.sides(-d);
         }
     };
     private static final String RIGHT = "Right";
@@ -109,7 +110,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(RIGHT);
-            Client2.p.sides(5);
+            Client2.p.sides(d);
         }
     };
     private static final String UP = "Up";
@@ -117,7 +118,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(UP);
-            Client2.p.other(-5);
+            Client2.p.other(-d);
         }
     };
     private static final String DOWN = "Down";
@@ -125,7 +126,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(DOWN);
-            Client2.p.other(5);
+            Client2.p.other(d);
         }
     };
 
