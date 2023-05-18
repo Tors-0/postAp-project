@@ -4,6 +4,8 @@ import org.joml.*;
 
 import java.util.concurrent.atomic.AtomicReference;
 
+import static VerletEngine.VerletObject.*;
+
 public class VerletSolver {
     Vector2d gravity = new Vector2d(0.0, 0.0);
 
@@ -24,12 +26,12 @@ public class VerletSolver {
     }
     
     private void updatePositions(float dt) {
-     VerletObject.VerlPhysObjs.forEach(currentObj ->
+     VerlPhysObjs.forEach(currentObj ->
        currentObj.updatePosition(dt));
     }
     
     private void applyGravity() {
-      VerletObject.VerlPhysObjs.forEach(currentObj ->
+      VerlPhysObjs.forEach(currentObj ->
           currentObj.accelerate(gravity)
       );
     }
@@ -37,7 +39,7 @@ public class VerletSolver {
     private void applyConstraints() {
         Vector2d pos = new Vector2d(800.0, 450.0);
         float radius = 400.0f;
-        VerletObject.VerlPhysObjs.forEach(currentObj -> {
+        VerlPhysObjs.forEach(currentObj -> {
             toObj = currentObj.getPosCurrent();
             dist = (float) (currentObj.getPosCurrent().distance(toObj));
             if (dist > radius - 50.0f) {
@@ -48,6 +50,7 @@ public class VerletSolver {
     }
 
     private void solveCollisions() {
-
+        int objCount = VerlPhysObjs.size();
+        
     }
 }
