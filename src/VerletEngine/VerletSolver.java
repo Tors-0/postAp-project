@@ -12,7 +12,12 @@ public class VerletSolver {
     Vector2d toObj;
     float dist;
     Vector2d n;
-    
+    VerletObject obj1 = new VerletObject();
+    VerletObject obj2 = new VerletObject();
+    Vector2d collisionAxis;
+    float solveDist;
+    Vector2d solveN;
+   
     public void update(float dt) {
       int subSteps = 4;
       float subdt = dt/ (float) (subSteps);
@@ -51,6 +56,11 @@ public class VerletSolver {
 
     private void solveCollisions() {
         int objCount = VerlPhysObjs.size();
-        
+        for(int i = 0; i < objCount; ++i) {
+            obj1 = VerlPhysObj.get(i);
+            for(int j = i + 1; j < objCount; ++j) {
+                obj2 = VerlPhysObj.get(i)
+            }
+        }
     }
 }
