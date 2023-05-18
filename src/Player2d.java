@@ -33,14 +33,14 @@ public class Player2d {
         fX = xFac; fY = yFac;
     }
     public Player2d() {
-        lX = 0; lY = 0;
+        lX = 0; lY = 0; coords = new Vector2d(lX,lY);
         vX = 0; vY = 0; velocity = new Vector2d(vX,vY);
         fX = 0; fY = 0;
     }
     public void update() {
         lX += vX/20; lY += vY/20;
         coords = new Vector2d(lX,lY);
-        vX *= 0.95; vY *= 0.9;
+        vX *= 0.95; vY *= 0.95;
         velocity = new Vector2d(vX,vY);
         if (Math.abs(vX) < 0.1) vX = 0;
         if (Math.abs(vY) < 0.1) vY = 0;

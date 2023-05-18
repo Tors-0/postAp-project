@@ -36,7 +36,7 @@ public class Client2 {
     public static void update() {
         Vector2d coord = p.getCoords();
         panel.clearWithoutRepaint();
-        g.fillOval((int) Math.round(coord.x)-1,(int) Math.round(coord.y)-1,2,2);
-        g.drawOval((int) Math.round(coord.x)-1,(int) Math.round(coord.y)-1,2,2);
+        g.fillOval((int) Math.round(coord.x)-2,(int) Math.round(coord.y)-2,4,4);
+        g.drawOval((int) Math.round(coord.x)-2,(int) Math.round(coord.y)-2,4,4);
     }
 }
