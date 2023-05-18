@@ -42,5 +42,11 @@ public class Player2d {
     public Vector2d getCoords() {
         return coords;
     }
-
+    public void move(Vector2d m) {
+        coords.add(m);
+    }
+    public void addVelocity(double x, double y) {
+        vX += x;
+        vY += y;
+    }
 }

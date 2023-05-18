@@ -53,11 +53,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 import java.awt.image.PixelGrabber;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.lang.Exception;
 import java.lang.Integer;
 import java.lang.InterruptedException;
@@ -85,7 +81,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.JTextComponent.KeyBinding;
 
-public final class DrawingPanel extends JPanel
+public final class DrawingPanel extends FileFilter
     implements ActionListener, MouseMotionListener, Runnable, WindowListener {
     // inner class to represent one frame of an animated GIF
     private static class ImageFrame {
@@ -99,11 +95,12 @@ public final class DrawingPanel extends JPanel
     }
 
     // start custom code
-    private static final String LEFT = "Left";
-    private Action left = new AbstractAction(LEFT) {
+
+    private static final String MOVE_L = "Left";
+    private Action left = new AbstractAction(MOVE_L) {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(LEFT);
+            System.out.println(MOVE_L);
         }
     };
     private static final String RIGHT = "Right";
@@ -113,9 +110,20 @@ public final class DrawingPanel extends JPanel
             System.out.println(RIGHT);
         }
     };
-
-
-
+    private static final String UP = "Up";
+    private Action up = new AbstractAction(UP) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(UP);
+        }
+    };
+    private static final String DOWN = "Down";
+    private Action down = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(DOWN);
+        }
+    };
 
     // end custom code
     
@@ -289,20 +297,7 @@ public final class DrawingPanel extends JPanel
     
     // construct a drawing panel of given width and height enclosed in a window
     public DrawingPanel(int width, int height) {
-        // TODO custom code
 
-        this.getInputMap().put(
-                KeyStroke.getKeyStroke('a'), LEFT);
-        this.getActionMap().put(LEFT, left);
-        this.getInputMap().put(
-                KeyStroke.getKeyStroke('d'), RIGHT);
-        this.getActionMap().put(RIGHT, right);
-
-
-
-
-
-        // TODO end custom code
 
         if (width < 0 || width > MAX_SIZE || height < 0 || height > MAX_SIZE) {
             throw new IllegalArgumentException("Illegal width/height: " + width + " x " + height);
@@ -420,6 +415,22 @@ public final class DrawingPanel extends JPanel
                 if (DEBUG) System.out.println("unable to add shutdown hook: " + e);
             }
         }
+        // TODO custom code
+
+        panel.getInputMap().put(
+                KeyStroke.getKeyStroke('a'), MOVE_L);
+        panel.getActionMap().put(MOVE_L, left);
+        panel.getInputMap().put(
+                KeyStroke.getKeyStroke('d'), RIGHT);
+        panel.getActionMap().put(RIGHT, right);
+        panel.getInputMap().put(
+                KeyStroke.getKeyStroke('w'), UP);
+        panel.getActionMap().put(UP, up);
+        panel.getInputMap().put(
+                KeyStroke.getKeyStroke('s'), DOWN);
+        panel.getActionMap().put(DOWN, down);
+
+        // TODO end custom code
     }
     
     // method of FileFilter interface
@@ -823,7 +834,7 @@ public final class DrawingPanel extends JPanel
             // TODO: fix security on applet mode
             chooser = new JFileChooser(System.getProperty("user.dir"));
             chooser.setMultiSelectionEnabled(false);
-            //chooser.setFileFilter(this);
+            chooser.setFileFilter(this);
         }
     }
     
