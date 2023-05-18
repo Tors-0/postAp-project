@@ -77,33 +77,15 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JColorChooser;
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSlider;
-import javax.swing.KeyStroke;
-import javax.swing.SwingConstants;
-import javax.swing.Timer;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.MouseInputListener;
 import javax.swing.filechooser.FileFilter;
+import javax.swing.text.JTextComponent;
+import javax.swing.text.JTextComponent.KeyBinding;
 
-public final class DrawingPanel extends FileFilter
+public final class DrawingPanel extends JPanel
     implements ActionListener, MouseMotionListener, Runnable, WindowListener {
     // inner class to represent one frame of an animated GIF
     private static class ImageFrame {
@@ -115,6 +97,27 @@ public final class DrawingPanel extends FileFilter
             this.delay = delay / 10;   // strangely, gif stores delay as sec/100
         }
     }
+
+    // start custom code
+    private static final String LEFT = "Left";
+    private Action left = new AbstractAction(LEFT) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(LEFT);
+        }
+    };
+    private static final String RIGHT = "Right";
+    private Action right = new AbstractAction(RIGHT) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(RIGHT);
+        }
+    };
+
+
+
+
+    // end custom code
     
     // class constants
     public static final String ANIMATED_PROPERTY   = "drawingpanel.animated";
@@ -286,6 +289,21 @@ public final class DrawingPanel extends FileFilter
     
     // construct a drawing panel of given width and height enclosed in a window
     public DrawingPanel(int width, int height) {
+        // TODO custom code
+
+        this.getInputMap().put(
+                KeyStroke.getKeyStroke('a'), LEFT);
+        this.getActionMap().put(LEFT, left);
+        this.getInputMap().put(
+                KeyStroke.getKeyStroke('d'), RIGHT);
+        this.getActionMap().put(RIGHT, right);
+
+
+
+
+
+        // TODO end custom code
+
         if (width < 0 || width > MAX_SIZE || height < 0 || height > MAX_SIZE) {
             throw new IllegalArgumentException("Illegal width/height: " + width + " x " + height);
         }
@@ -805,7 +823,7 @@ public final class DrawingPanel extends FileFilter
             // TODO: fix security on applet mode
             chooser = new JFileChooser(System.getProperty("user.dir"));
             chooser.setMultiSelectionEnabled(false);
-            chooser.setFileFilter(this);
+            //chooser.setFileFilter(this);
         }
     }
     
