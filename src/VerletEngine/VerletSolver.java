@@ -17,6 +17,7 @@ public class VerletSolver {
     Vector2d collisionAxis;
     float solveDist;
     Vector2d solveN;
+    float delta;
    
     public void update(float dt) {
       int subSteps = 4;
@@ -59,7 +60,15 @@ public class VerletSolver {
         for(int i = 0; i < objCount; ++i) {
             obj1 = VerlPhysObj.get(i);
             for(int j = i + 1; j < objCount; ++j) {
-                obj2 = VerlPhysObj.get(i)
+                obj2 = VerlPhysObj.get(k);
+                collisionAxis = obj1.getPosCurrent().sub(obj2.getPosCurrent());
+                solveDist = obj2.distance(collisionAxis);
+                if(dist < 100.0f) {
+                    solveN = collisionAxis.div(dist);
+                    delta = 100.0f - dist;
+                    obj1.setPosCurrent(obj1.getPosCurrent().add(0.5f * delta * n));
+                    obj2.setPosCurrent(obj2.getPosCurrent().sub(0.5f * delta * n));
+               }
             }
         }
     }
