@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static VerletEngine.VerletObject.VerlPhysObjs;
 
 public class Client2 {
-    public static Player2d p = new Player2d(400,400,0,0,10,10);
+    public static Player2d p = new Player2d(400,200,0,0,10,10);
     // Creates the drawing panel object
     static DrawingPanel panel = new DrawingPanel(800, 500);
     static final int fps = 30;
@@ -26,7 +26,8 @@ public class Client2 {
         
         GameSpace.newRectangle(600,350,201,20);
         GameSpace.newRectangle(500,395,100,20);
-        GameSpace.newRectangle(300,405,50,100);
+        GameSpace.newRectangle(300,405,50,85);
+        GameSpace.newRectangle(300,405,200,45);
 
         VerletObject bill = new VerletObject(new Vector2d(250.0f, 250.0f));
         /*
@@ -43,12 +44,14 @@ public class Client2 {
         
         
     }
+    static int playerPx = 4;
+    static int offset = (int) Math.round(playerPx / 2.0);
     public static void update() {
         Vector2d coord = p.getCoords();
         panel.clearWithoutRepaint();
         GameSpace.GameRectObjs.forEach(current -> g.drawRect(current.x1, current.y1, current.getWidth(), current.getHeight()));
-        g.fillOval((int) Math.round(coord.x)-2,(int) Math.round(coord.y)-2,4,4);
-        g.drawOval((int) Math.round(coord.x)-2,(int) Math.round(coord.y)-2,4,4);
+        g.fillRect((int) Math.round(coord.x)-offset,(int) Math.round(coord.y)-offset,playerPx,playerPx);
+        g.drawRect((int) Math.round(coord.x)-offset,(int) Math.round(coord.y)-offset,playerPx,playerPx);
         g.drawLine(0,490,800,490);
         VerlPhysObjs.forEach(currentObj ->
                 g.drawOval((int) (currentObj.getPosCurrent().x - 50),(int)(500-(currentObj.getPosCurrent().y - 50)),100,

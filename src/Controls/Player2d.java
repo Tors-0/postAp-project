@@ -20,7 +20,7 @@ public class Player2d {
     private float fX;
     private float fY;
     private int sinceLastJump = 20;
-    private int timeBetweenJump = 45; // 20 = 1 sec // min time between player jumps
+    private int timeBetweenJump = 40; // 20 = 1 sec // min time between player jumps
     public void sides(float x) {
         vX += x;
         if (vX > 100) vX = 100;
@@ -57,47 +57,52 @@ public class Player2d {
         coords = new Vector2d(lX,lY); // end coords calc
 
         GameSpace.GameRectObjs.forEach(currObj -> {
-            if (currObj.x1 < this.lX+2 && this.lX-2 < currObj.x2) {
-                if (currObj.y1 < this.lY+2 && this.lY-2 < currObj.y2) {
-                    if (this.vY < 0) {
-                        lY = currObj.y2+2;
-                        vY *= -0.9;
-                        vX *= 1.1;
-                    } else {
-                        lY = currObj.y1-2;
-                        vY *= -0.8;
-                        vX *= 1.1;
-                    }
+            if (Math.abs(lX - currObj.x1) < 10 && currObj.x1 < lX) {
+                if (currObj.y1 < lY && lY < currObj.y2) {
+                    lX = currObj.x1;
+                    vX *= -0.95;
+                    vY *= 1.1;
                 }
-            }
-            if (currObj.y1 < this.lY+2 && this.lY-2 < currObj.y2) {
-                if (currObj.x1 < this.lX+2 && this.lX-2 < currObj.x2) {
-                    if (this.vX < 0) {
-                        lX = currObj.x2 + 2;
-                        vX *= -0.95;
-                        vY *= 1.1;
-                    } else {
-                        lX = currObj.x1 - 2;
-                        vX *= -0.95;
-                        vY *= 1.1;
-                    }
+            } else if (Math.abs(lX - currObj.x2) < 10 && currObj.x2 > lX) {
+                if (currObj.y1 < lY && lY < currObj.y2) {
+                    lX = currObj.x2;
+                    vX *= -0.95;
+                    vY *= 1.1;
+                }
+            } else if (Math.abs(lY-2 - currObj.y1) < 10 && currObj.y1-2 < lY) {
+                if (currObj.x1 < lX && lX < currObj.x2) {
+                    lY = currObj.y1-2;
+                    vY *= -0.8;
+                    vX *= 0.8;
+                }
+            } else if (Math.abs(lY - currObj.y2) < 10 && currObj.y2 > lY) {
+                if (currObj.x1 < lX && lX < currObj.x2) {
+                    lY = currObj.y2;
+                    vY *= -0.8;
+                    vX *= 0.8;
                 }
             }
         });
 
         // start vel calc
-        vX *= 0.95;
+        vY *= 0.9;
+        vX *= 0.999;
         if (lY < 488) {
             vY += 5;
         }
         if (lY >= 488) {
             vY = (float) -0.8 * vY;
             lY = 488;
-            vX *= 0.95;
+            vX *= 0.8;
         }
         velocity = new Vector2d(vX,vY);
         if (Math.abs(vX) < 0.1) vX = 0;
         if (Math.abs(vY) < 0.1) vY = 0;
+
+        vX = (vX > 30) ? 30 : vX * 1;
+        vX = (vX < -30) ? -30 : vX * 1;
+        vY = (vY > 30) ? 30 : vY * 1;
+        vY = (vY < -30) ? 30 : vY * 1;
     }
     public Vector2d getCoords() {
         return coords;
