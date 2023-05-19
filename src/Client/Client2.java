@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static VerletEngine.VerletObject.VerlPhysObjs;
 
 public class Client2 {
-    public static Player2d p = new Player2d(400,200,0,0,10,10);
+    public static Player2d p = new Player2d(400,200,0,0);
     // Creates the drawing panel object
     static DrawingPanel panel = new DrawingPanel(800, 500);
     static final int fps = 30;
