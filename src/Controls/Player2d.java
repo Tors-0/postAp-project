@@ -20,7 +20,7 @@ public class Player2d {
     private float fX;
     private float fY;
     private int sinceLastJump = 20;
-    private int timeBetweenJump = 40; // 20 = 1 sec // min time between player jumps
+    private int timeBetweenJump = 45; // 20 = 1 sec // min time between player jumps
     public void sides(float x) {
         vX += x;
         if (vX > 100) vX = 100;
@@ -72,37 +72,32 @@ public class Player2d {
             } else if (Math.abs(lY-2 - currObj.y1) < 10 && currObj.y1-2 < lY) {
                 if (currObj.x1 < lX && lX < currObj.x2) {
                     lY = currObj.y1-2;
-                    vY *= -0.8;
+                    vY *= -0.9;
                     vX *= 0.8;
                 }
             } else if (Math.abs(lY - currObj.y2) < 10 && currObj.y2 > lY) {
                 if (currObj.x1 < lX && lX < currObj.x2) {
                     lY = currObj.y2;
-                    vY *= -0.8;
+                    vY *= -0.9;
                     vX *= 0.8;
                 }
             }
         });
 
+
         // start vel calc
-        vY *= 0.9;
-        vX *= 0.999;
+        vX *= 0.95;
         if (lY < 488) {
             vY += 5;
         }
         if (lY >= 488) {
             vY = (float) -0.8 * vY;
             lY = 488;
-            vX *= 0.8;
+            vX *= 0.95;
         }
         velocity = new Vector2d(vX,vY);
         if (Math.abs(vX) < 0.1) vX = 0;
         if (Math.abs(vY) < 0.1) vY = 0;
-
-        vX = (vX > 30) ? 30 : vX * 1;
-        vX = (vX < -30) ? -30 : vX * 1;
-        vY = (vY > 30) ? 30 : vY * 1;
-        vY = (vY < -30) ? 30 : vY * 1;
     }
     public Vector2d getCoords() {
         return coords;
