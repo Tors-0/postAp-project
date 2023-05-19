@@ -1,5 +1,7 @@
 package Environment;
 
+import static Client.Client2.scene;
+
 public class Rectangle {
     public final int x1;
     public final int x2;
@@ -15,7 +17,7 @@ public class Rectangle {
         this.y1 = y1;
         this.y2 = y1 + height - 1;
         this.height = height;
-        GameSpace.GameRectObjs.add(this);
+        scene.GameRectObjs.add(this);
     }
 
     public int getWidth() {

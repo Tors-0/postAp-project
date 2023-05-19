@@ -16,7 +16,7 @@ public class GameSpace {
         return height;
     }
 
-    public static ArrayList<Rectangle> GameRectObjs = new ArrayList<>();
+    public ArrayList<Rectangle> GameRectObjs = new ArrayList<>();
 
     public void newRectangle(int x1, int y1, int width, int height) {
         GameRectObjs.add(new Rectangle(x1,y1,width,height));
