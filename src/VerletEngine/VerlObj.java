@@ -2,7 +2,8 @@ package VerletEngine;
 
 import org.joml.Vector2d;
 import java.util.ArrayList;
-import Environment.GameSpace;
+
+import static Client.Client2.scene;
 
 public class VerlObj {
 
@@ -21,7 +22,7 @@ public class VerlObj {
     }
 
     public VerlObj() {
-        currentPos = new Vector2d(GameSpace.winWidth/2.0, GameSpace.winHeight/2.0);
+        currentPos = new Vector2d(scene.width() /2.0, scene.height() /2.0);
 
         scenePhysObjs.add(this);
     }

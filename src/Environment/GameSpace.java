@@ -3,12 +3,24 @@ package Environment;
 import java.util.ArrayList;
 
 public class GameSpace {
-    final public static int winWidth = 1600;
-    final public static int winHeight = 900;
+    protected int width;
+    protected int height;
+    public GameSpace(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+    public int width() {
+        return width;
+    }
+    public int height() {
+        return height;
+    }
 
     public static ArrayList<Rectangle> GameRectObjs = new ArrayList<>();
 
-    public static void newRectangle(int x1, int y1, int width, int height) {
-        new Rectangle(x1,y1,width,height);
+    public void newRectangle(int x1, int y1, int width, int height) {
+        GameRectObjs.add(new Rectangle(x1,y1,width,height));
     }
+
+
 }

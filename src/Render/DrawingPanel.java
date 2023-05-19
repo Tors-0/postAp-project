@@ -25,6 +25,7 @@ Recent features:
 */
 
 import Client.Client2;
+import org.joml.Vector2d;
 
 import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
@@ -101,7 +102,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(MOVE_L);
-            Client2.p.sides(-d);
+            Client2.p.addForce(new Vector2d(-d,0));
         }
     };
     private static final String RIGHT = "Right";
@@ -109,7 +110,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(RIGHT);
-            Client2.p.sides(d);
+            Client2.p.addForce(new Vector2d(d,0));
         }
     };
     private static final String UP = "Up";
@@ -117,7 +118,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(UP);
-            Client2.p.other(-d);
+            Client2.p.addForce(new Vector2d(0,d));
         }
     };
     private static final String DOWN = "Down";
@@ -125,7 +126,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(DOWN);
-            Client2.p.other(d);
+            Client2.p.addForce(new Vector2d(0,-d));
         }
     };
 
