@@ -5,7 +5,7 @@ import org.joml.*;
 import java.util.ArrayList;
 
 public class VerletObject {
-  private Vector2d posCurrent = new Vector2d(0,0);
+  private Vector2d posCurrent = new Vector2d(400,250);
   private Vector2d posOld = new Vector2d(0,0);
   private Vector2d acceleration = new Vector2d(0,0);
 
