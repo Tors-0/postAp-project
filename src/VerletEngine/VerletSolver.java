@@ -7,19 +7,19 @@ import java.util.concurrent.atomic.AtomicReference;
 import static VerletEngine.VerletObject.*;
 
 public class VerletSolver {
-    Vector2d gravity = new Vector2d(0.0, 0.0);
+    static Vector2d gravity = new Vector2d(0.0, 0.0);
 
-    Vector2d toObj;
-    float dist;
-    Vector2d n;
-    VerletObject obj1;
-    VerletObject obj2;
-    Vector2d collisionAxis;
-    float solveDist;
-    Vector2d solveN;
-    float delta;
+    static Vector2d toObj = new Vector2d(0,0);
+    static float dist;
+    static Vector2d n = new Vector2d(0,0);
+    static VerletObject obj1;
+    static VerletObject obj2;
+    static Vector2d collisionAxis;
+    static float solveDist;
+    static Vector2d solveN;
+    static float delta;
 
-    public void update(float dt) {
+    public static void update(float dt) {
         int subSteps = 4;
         float subdt = dt/ (float) (subSteps);
 
@@ -31,18 +31,18 @@ public class VerletSolver {
         }
     }
 
-    private void updatePositions(float dt) {
+    private static void updatePositions(float dt) {
         VerlPhysObjs.forEach(currentObj ->
                 currentObj.updatePosition(dt));
     }
 
-    private void applyGravity() {
+    private static void applyGravity() {
         VerlPhysObjs.forEach(currentObj ->
                 currentObj.accelerate(gravity)
         );
     }
 
-    private void applyConstraints() {
+    private static void applyConstraints() {
         Vector2d pos = new Vector2d(800.0, 450.0);
         float radius = 400.0f;
         VerlPhysObjs.forEach(currentObj -> {
@@ -55,7 +55,7 @@ public class VerletSolver {
         });
     }
 
-    private void solveCollisions() {
+    private static void solveCollisions() {
         int objCount = VerlPhysObjs.size();
         for(int i = 0; i < objCount; ++i) {
             obj1 = VerlPhysObjs.get(i);
