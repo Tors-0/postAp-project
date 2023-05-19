@@ -1,7 +1,8 @@
 package Client;
 
-import Engine.DrawingPanel;
-import Engine.GameSpace;
+import Engine.Player;
+import Render.DrawingPanel;
+import Environment.GameSpace;
 import org.joml.Vector2d;
 
 import java.awt.*;
@@ -11,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Client2 {
-    public static Player2d p = new Player2d(400,200,0,0,0,0);
+    public static Player p = new Player(400,200);
     // Creates the drawing panel object
     static DrawingPanel panel = new DrawingPanel(800, 500);
     static final int fps = 30;
@@ -29,8 +30,10 @@ public class Client2 {
          * Other methods can be found in the Graphics API: https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
          */
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
-        executor.scheduleAtFixedRate(Client2::update, 0, 1000/fps, TimeUnit.MILLISECONDS); // draw frame fps times per second
-        executor.scheduleAtFixedRate(p::update,0,1000/tps,TimeUnit.MILLISECONDS); // run phys calc tps times per second
+        executor.scheduleAtFixedRate(Client2::update,0,1000/fps,TimeUnit.MILLISECONDS);
+        // draw frame fps times per second
+        executor.scheduleAtFixedRate(p::update,0,1000/tps,TimeUnit.MILLISECONDS);
+        // run phys calc tps times per second
 
         /*
          * 

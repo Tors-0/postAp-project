@@ -1,8 +1,8 @@
-package Engine; /**
-The Engine.DrawingPanel class provides a simple interface for drawing persistent
+package Render; /**
+The Render.DrawingPanel class provides a simple interface for drawing persistent
 images using a Graphics object.  An internal BufferedImage object is used
 to keep track of what has been drawn.  A client of the class simply
-constructs a Engine.DrawingPanel of a particular size and then draws on it with
+constructs a Render.DrawingPanel of a particular size and then draws on it with
 the Graphics object, setting the background color if they so choose.
 <p>
 
@@ -10,7 +10,7 @@ To ensure that the image is always displayed, a timer calls repaint at
 regular intervals.
 <p>
 
-This version of Engine.DrawingPanel also saves animated GIFs, though this is kind
+This version of Render.DrawingPanel also saves animated GIFs, though this is kind
 of hit-and-miss because animated GIFs are pretty sucky (256 color limit, large
 file size, etc).
 <p>
@@ -160,7 +160,7 @@ public final class DrawingPanel extends FileFilter
                 input.close();
                 // *** TODO: delete the file
                 System.out.println("***");
-                System.out.println("*** Engine.DrawingPanel saving animated GIF: " +
+                System.out.println("*** Render.DrawingPanel saving animated GIF: " +
                         new File(animationSaveFileName).getName());
                 System.out.println("***");
                 settingsFile.delete();
@@ -285,7 +285,7 @@ public final class DrawingPanel extends FileFilter
     private Graphics2D g2;                 // graphics context for painting
     private JLabel statusBar;              // status bar showing mouse position
     private JFileChooser chooser;          // file chooser to save files
-    private long createTime;               // time at which Engine.DrawingPanel was constructed
+    private long createTime;               // time at which Render.DrawingPanel was constructed
     private Timer timer;                   // animation timer
     private ArrayList<ImageFrame> frames;  // stores frames of animation to save
     private Gif89Encoder encoder;
@@ -311,7 +311,7 @@ public final class DrawingPanel extends FileFilter
         
         synchronized (getClass()) {
             instances++;
-            instanceNumber = instances;  // each Engine.DrawingPanel stores its own int number
+            instanceNumber = instances;  // each Render.DrawingPanel stores its own int number
             
             if (shutdownThread == null && !usingDrJava()) {
                 shutdownThread = new Thread(new Runnable() {
@@ -497,14 +497,14 @@ public final class DrawingPanel extends FileFilter
             setGridLines(((JCheckBoxMenuItem) e.getSource()).isSelected());
         } else if (e.getActionCommand().equals("About...")) {
             JOptionPane.showMessageDialog(frame,
-                    "Engine.DrawingPanel\n" +
+                    "Render.DrawingPanel\n" +
                     "Graphical library class to support Building Java Programs textbook\n" +
                     "written by Marty Stepp and Stuart Reges\n" +
                     "University of Washington\n\n" +
                     "please visit our web site at:\n" +
                     "http://www.buildingjavaprograms.com/",
                     
-                    "About Engine.DrawingPanel",
+                    "About Render.DrawingPanel",
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }
@@ -774,7 +774,7 @@ public final class DrawingPanel extends FileFilter
         toFront(frame);
     }
     
-    // called when Engine.DrawingPanel closes, to potentially exit the program
+    // called when Render.DrawingPanel closes, to potentially exit the program
     public void windowClosing(WindowEvent event) {
         frame.setVisible(false);
         synchronized (getClass()) {
@@ -842,7 +842,7 @@ public final class DrawingPanel extends FileFilter
         }
     }
     
-    // compares current Engine.DrawingPanel image to an image file on disk
+    // compares current Render.DrawingPanel image to an image file on disk
     private void compareToFile() {
         // save current image to a temp file
         try {
@@ -862,7 +862,7 @@ public final class DrawingPanel extends FileFilter
         }
     }
     
-    // compares current Engine.DrawingPanel image to an image file on the web
+    // compares current Render.DrawingPanel image to an image file on the web
     private void compareToURL() {
         // save current image to a temp file
         try {
@@ -1064,8 +1064,8 @@ public final class DrawingPanel extends FileFilter
                 out.close();
                 
                 JOptionPane.showMessageDialog(frame, 
-                    "Due to constraints about how Engine.DrawingPanel works, you'll need to\n" +
-                    "re-run your program.  When you run it the next time, Engine.DrawingPanel will \n" +
+                    "Due to constraints about how Render.DrawingPanel works, you'll need to\n" +
+                    "re-run your program.  When you run it the next time, Render.DrawingPanel will \n" +
                     "automatically save your animated image as: " + new File(filename).getName()
                 );
             } catch (IOException ex) {
@@ -1098,7 +1098,7 @@ public final class DrawingPanel extends FileFilter
         return filename;
     }
     
-    // saves Engine.DrawingPanel image to a temporary file and returns file's name
+    // saves Render.DrawingPanel image to a temporary file and returns file's name
     private String saveToTempFile() throws IOException {
         File currentImageFile = File.createTempFile("current_image", ".png");
         save(currentImageFile.toString());
@@ -1113,7 +1113,7 @@ public final class DrawingPanel extends FileFilter
         statusBar.setText(text);
     }
     
-    // initializes Engine.DrawingPanel's menu bar items
+    // initializes Render.DrawingPanel's menu bar items
     private void setupMenuBar() {
         // abort compare if we're running as an applet or in a secure environment
         boolean secure = (System.getSecurityManager() != null);

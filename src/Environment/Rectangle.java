@@ -1,4 +1,4 @@
-package Engine;
+package Environment;
 
 public class Rectangle {
     public final int x1;
