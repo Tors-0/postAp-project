@@ -34,7 +34,7 @@ public class Client2 {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
         executor.scheduleAtFixedRate(Client2::update, 0, 1000/fps, TimeUnit.MILLISECONDS);
         executor.scheduleAtFixedRate(p::update,0,1000/tps,TimeUnit.MILLISECONDS);
-        VerletSolver.update(10.0f);
+        VerletSolver.update(10000f);
 
         /*
          * 

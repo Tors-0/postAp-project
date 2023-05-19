@@ -1,15 +1,16 @@
 package VerletEngine;
 
+import VectorUtils.VectorUtils;
 import org.joml.*;
 
 import java.util.ArrayList;
 
 public class VerletObject {
-  private Vector2d posCurrent;
-  private Vector2d posOld;
-  private Vector2d acceleration;
+  private Vector2d posCurrent = new Vector2d(0,0);
+  private Vector2d posOld = new Vector2d(0,0);
+  private Vector2d acceleration = new Vector2d(0,0);
   
-  private Vector2d velocity;
+  private Vector2d velocity = new Vector2d(0,0);
   
   private static int objCount;
   
@@ -17,7 +18,7 @@ public class VerletObject {
   
   public void updatePosition(float dt) {
     //Compute last velocity
-    velocity = posCurrent.sub(posOld); //- posOld;
+    velocity = VectorUtils.subV2d(posCurrent,posOld); //- posOld;
     
     //save current pos 
     posOld = posCurrent;

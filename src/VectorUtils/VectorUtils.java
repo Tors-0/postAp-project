@@ -1,3 +1,5 @@
+package VectorUtils;
+
 import org.joml.Vector2d;
 import org.joml.Vector3d;
 import org.joml.Vector4d;
@@ -20,5 +22,8 @@ public class VectorUtils {
     }
     public static Vector3d addV3d(Vector3d a, Vector3d b) {
         return new Vector3d(a.x+b.x,a.y+b.y,a.z+b.z);
+    }
+    public static Vector2d subV2d(Vector2d a, Vector2d b) {
+        return new Vector2d(a.x-b.x,a.y-b.y);
     }
 }
