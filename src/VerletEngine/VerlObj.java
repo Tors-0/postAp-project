@@ -1,4 +1,4 @@
-package VerletEngine.Take2;
+package VerletEngine;
 
 import org.joml.Vector2d;
 

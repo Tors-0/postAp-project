@@ -1,6 +1,5 @@
 package Client;
 
-import Controls.Player2d;
 import Engine.DrawingPanel;
 import Engine.GameSpace;
 import org.joml.Vector2d;
@@ -30,8 +29,8 @@ public class Client2 {
          * Other methods can be found in the Graphics API: https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
          */
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
-        executor.scheduleAtFixedRate(Client2::update, 0, 1000/fps, TimeUnit.MILLISECONDS);
-        executor.scheduleAtFixedRate(p::update,0,1000/tps,TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(Client2::update, 0, 1000/fps, TimeUnit.MILLISECONDS); // draw frame fps times per second
+        executor.scheduleAtFixedRate(p::update,0,1000/tps,TimeUnit.MILLISECONDS); // run phys calc tps times per second
 
         /*
          * 
