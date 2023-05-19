@@ -50,7 +50,7 @@ public class Client2 {
         g.drawOval((int) Math.round(coord.x)-2,(int) Math.round(coord.y)-2,4,4);
         g.drawLine(0,490,800,490);
         VerlPhysObjs.forEach(currentObj ->
-                g.drawOval((int)currentObj.getPosCurrent().x - 50,(int)(currentObj.getPosCurrent().y * - 50) * -1,100,
+                g.drawOval((int)currentObj.getPosCurrent().x - 50,(int)(100-(currentObj.getPosCurrent().y * - 50)),100,
                         100)
         );
     }
