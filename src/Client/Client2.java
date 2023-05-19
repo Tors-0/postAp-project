@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class Client2 {
     public static Player p = new Player(400,200);
     // Creates the drawing panel object
-    static DrawingPanel panel = new DrawingPanel(800, 500);
+    static DrawingPanel panel = new DrawingPanel(GameSpace.winWidth, GameSpace.winHeight);
     static final int fps = 30;
     static final int tps = 30;
     // Obtains the graphics object that allows for drawing on the panel
@@ -44,7 +44,7 @@ public class Client2 {
     static int playerPx = 4;
     static int offset = (int) Math.round(playerPx / 2.0);
     public static void update() {
-        Vector2d coord = p.getCoords();
+        Vector2d coord = p.getPos();
         panel.clearWithoutRepaint();
         GameSpace.GameRectObjs.forEach(current -> g.drawRect(current.x1, current.y1, current.getWidth(), current.getHeight()));
         g.fillRect((int) Math.round(coord.x)-offset,(int) Math.round(coord.y)-offset,playerPx,playerPx);
