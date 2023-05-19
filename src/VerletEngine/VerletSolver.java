@@ -43,7 +43,7 @@ public class VerletSolver {
     }
 
     private static void applyConstraints() {
-        Vector2d pos = new Vector2d(800.0, 450.0);
+        Vector2d pos = new Vector2d(400.0, 250.0);
         float radius = 400.0f;
         VerlPhysObjs.forEach(currentObj -> {
             toObj = currentObj.getPosCurrent();
