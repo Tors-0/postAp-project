@@ -1,3 +1,8 @@
+package Client;
+
+import Controls.Player;
+import Engine.OpenGlEngine;
+
 import java.awt.event.KeyEvent;
 
 import static org.lwjgl.glfw.GLFW.glfwWindowShouldClose;

@@ -1,3 +1,8 @@
+package Client;
+
+import Controls.Player2d;
+import Engine.DrawingPanel;
+import Engine.GameSpace;
 import VerletEngine.VerletObject;
 import VerletEngine.VerletSolver;
 import org.joml.Vector2d;
@@ -10,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static VerletEngine.VerletObject.VerlPhysObjs;
 
 public class Client2 {
-    static Player2d p = new Player2d(400,400,0,0,10,10);
+    public static Player2d p = new Player2d(400,400,0,0,10,10);
     // Creates the drawing panel object
     static DrawingPanel panel = new DrawingPanel(800, 500);
     static final int fps = 30;
@@ -46,7 +51,7 @@ public class Client2 {
         g.drawOval((int) Math.round(coord.x)-2,(int) Math.round(coord.y)-2,4,4);
         g.drawLine(0,490,800,490);
         VerlPhysObjs.forEach(currentObj ->
-                g.drawOval((int)currentObj.getPosCurrent().x - 50,(int)(500-(currentObj.getPosCurrent().y * - 50)),100,
+                g.drawOval((int)currentObj.getPosCurrent().x - 50,(int)(500-(currentObj.getPosCurrent().y - 50)),100,
                         100)
         );
     }

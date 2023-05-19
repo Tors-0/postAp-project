@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import static VerletEngine.VerletObject.*;
 
 public class VerletSolver {
-    static Vector2d gravity = new Vector2d(0.0, 0.0);
+    static Vector2d gravity = new Vector2d(0,3);
 
     static Vector2d toObj = new Vector2d(0,0);
     static float dist;
