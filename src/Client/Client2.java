@@ -15,8 +15,8 @@ public class Client2 {
     public static Player p = new Player(400,200);
     // Creates the drawing panel object
     static DrawingPanel panel = new DrawingPanel(GameSpace.winWidth, GameSpace.winHeight);
-    static final int fps = 30;
-    static final int tps = 30;
+    public static final int fps = 30;
+    public static final int tps = 30;
     // Obtains the graphics object that allows for drawing on the panel
     static Graphics g = panel.getGraphics();
     public static void main(String[] args){

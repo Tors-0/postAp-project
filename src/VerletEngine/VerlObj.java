@@ -72,6 +72,13 @@ public class VerlObj {
      *  It does so by performing the law of universal gravitation and it's formula on each physics object
      */
     private void gravityIter() {
+        /* law of universal gravitation = G * ( (m1 * m2) / r*r )
+        G = 6.6743 * Math.pow(10,-11) // in units of m^3 * kg^-1 * s^-2
+        m1 = mass of object 1
+        m2 = mass of object 2
+        r = distance between centers of masses
+        we could abitrarily place a very massive object quite far from the render window to create constant downwards gravity
+         */
         scenePhysObjs.forEach(e -> {
 
         });
