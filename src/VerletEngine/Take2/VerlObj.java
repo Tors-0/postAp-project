@@ -1,5 +1,9 @@
 package VerletEngine.Take2;
 
+import org.joml.Vector2d;
+
+import java.util.ArrayList;
+
 public class VerlObj {
   
   private Vector2d tempPos = new Vector2d(0.0f, 0.0f);
@@ -15,7 +19,7 @@ public class VerlObj {
   public VerlObj(Vector2d spawnPos) {
       currentPos = spawnPos;
     
-      ScenePhysObjs.add(this);
+      scenePhysObjs.add(this);
   }
   
   public void accelerate(Vector2d accel) {
@@ -30,7 +34,7 @@ public class VerlObj {
       return currentPos; 
   }
   
-  public Vector2d setPos(Vector2d newPos) {
+  public void setPos(Vector2d newPos) {
       currentPos = newPos; 
   }
   
