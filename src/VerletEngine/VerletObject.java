@@ -1,43 +1,42 @@
 package VerletEngine;
 
-import VectorUtils.VectorUtils;
 import org.joml.*;
 
 import java.util.ArrayList;
 
 public class VerletObject {
-  private Vector2d posCurrent = new Vector2d(0,0);
-  private Vector2d posOld = new Vector2d(0,0);
-  private Vector2d acceleration = new Vector2d(0,0);
-  
-  private Vector2d velocity = new Vector2d(0,0);
-  
+  private Vector2d posCurrent;
+  private Vector2d posOld;
+  private Vector2d acceleration;
+
+  private Vector2d velocity;
+
   private static int objCount;
-  
+
   public static ArrayList<VerletObject> VerlPhysObjs = new ArrayList<VerletObject>();
-  
+
   public void updatePosition(float dt) {
     //Compute last velocity
-    velocity = VectorUtils.subV2d(posCurrent,posOld); //- posOld;
-    
-    //save current pos 
+    velocity = posCurrent.sub(posOld); //- posOld;
+
+    //save current pos
     posOld = posCurrent;
-    
+
     //now perform Verlet integration
     posCurrent = posCurrent.add(velocity.add(acceleration.mul(2 * dt)));// + velocity + acceleration * dt * dt;
-    
+
     //reset acceleration
-    acceleration = new Vector2d(0,0);
+    acceleration = null;
   }
-  
+
   public void accelerate(Vector2d acc) {
     acceleration = acceleration.add(acc);
   }
-  
+
   {
     objCount++;
   }
-  
+
   public int getCount() {
     return objCount;
   }
@@ -49,10 +48,10 @@ public class VerletObject {
   public void setPosCurrent(Vector2d pC) {
     posCurrent = pC;
   }
-  
+
   public VerletObject(Vector2d pos) {
     posCurrent = pos;
-    
+
     VerlPhysObjs.add(this);
   }
 }
