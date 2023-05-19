@@ -3,15 +3,11 @@ import VerletEngine.VerletSolver;
 import org.joml.Vector2d;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import static VerletEngine.VerletObject.VerlPhysObjs;
-import static VerletEngine.VerletSolver.update;
 
 public class Client2 {
     static Player2d p = new Player2d(400,400,0,0,10,10);
