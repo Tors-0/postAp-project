@@ -30,9 +30,13 @@ public class Player extends VerlObj {
     public void update() {
         // apply dampening to acceleration
         // TODO replace scalar with gravitational constant
-        acc = acc.mul();
+        if (vel.y < 0 && acc.y < 0) {
+            acc.y = 
+        }
         // apply acceleration to velocity
-        vel = vel.add(acc);
+        vel = vel.add(acc.div(deltaTime));
+        // apply terminal velocity, when velocity = terminal velocity, gravitational acceleration must be zero
+        acc.y *= 1 - (acc.y / terminalVel);
         // save currentPos to tempPos
         tempPos = new VectorC2d(currentPos.x,currentPos.y);
         // apply velocity/deltaTime scaled by the mass of the object
