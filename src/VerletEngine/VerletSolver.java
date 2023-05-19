@@ -5,13 +5,13 @@ import org.joml.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class VerletSolver {
-    Vector2d gravity = new Vector2d(0.0, 0.0);
+    static Vector2d gravity = new Vector2d(0.0, 0.0);
 
-    Vector2d toObj;
-    float dist;
-    Vector2d n;
+    static Vector2d toObj;
+    static float dist;
+    static Vector2d n;
     
-    public void update(float dt) {
+    public static void update(float dt) {
       int subSteps = 4;
       float subdt = dt/ (float) (subSteps);
       
@@ -23,18 +23,18 @@ public class VerletSolver {
       }
     }
     
-    private void updatePositions(float dt) {
+    private static void updatePositions(float dt) {
      VerletObject.VerlPhysObjs.forEach(currentObj ->
        currentObj.updatePosition(dt));
     }
     
-    private void applyGravity() {
+    private static void applyGravity() {
       VerletObject.VerlPhysObjs.forEach(currentObj ->
           currentObj.accelerate(gravity)
       );
     }
   
-    private void applyConstraints() {
+    private static void applyConstraints() {
         Vector2d pos = new Vector2d(800.0, 450.0);
         float radius = 400.0f;
         VerletObject.VerlPhysObjs.forEach(currentObj -> {
@@ -47,7 +47,7 @@ public class VerletSolver {
         });
     }
 
-    private void solveCollisions() {
+    private static void solveCollisions() {
 
     }
 }

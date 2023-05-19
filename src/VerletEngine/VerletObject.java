@@ -26,7 +26,7 @@ public class VerletObject {
     posCurrent = posCurrent.add(velocity.add(acceleration.mul(2 * dt)));// + velocity + acceleration * dt * dt;
     
     //reset acceleration
-    acceleration = null;
+    acceleration = new Vector2d(0,0);
   }
   
   public void accelerate(Vector2d acc) {

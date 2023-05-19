@@ -1,4 +1,5 @@
 import org.joml.Vector2d;
+import org.lwjgl.vulkan.VkXcbSurfaceCreateInfoKHR;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -21,9 +22,11 @@ public class Player2d {
     private float fX;
     private float fY;
     private int sinceLastJump = 20;
-    private int timeBetweenJump = 32; // 20 = 1 sec // min time between player jumps
+    private int timeBetweenJump = 45; // 20 = 1 sec // min time between player jumps
     public void sides(float x) {
-        vX = x;
+        vX += x;
+        if (vX > 100) vX = 100;
+        if (vX < -100) vX = -100;
     }
     public void other(float y) {
         if (sinceLastJump >= timeBetweenJump) {
@@ -53,7 +56,38 @@ public class Player2d {
             vX = -vX;
         }
         lX += vX/20; lY += vY/20;
-        coords = new Vector2d(lX,lY);
+        coords = new Vector2d(lX,lY); // end coords calc
+
+        GameSpace.GameRectObjs.forEach(currObj -> {
+            if (currObj.x1 < this.lX+2 && this.lX-2 < currObj.x2) {
+                if (currObj.y1 < this.lY+2 && this.lY-2 < currObj.y2) {
+                    if (this.vY < 0) {
+                        lY = currObj.y2+2;
+                        vY *= -0.9;
+                        vX *= 1.1;
+                    } else {
+                        lY = currObj.y1-2;
+                        vY *= -0.8;
+                        vX *= 1.1;
+                    }
+                }
+            }
+            if (currObj.y1 < this.lY+2 && this.lY-2 < currObj.y2) {
+                if (currObj.x1 < this.lX+2 && this.lX-2 < currObj.x2) {
+                    if (this.vX < 0) {
+                        lX = currObj.x2 + 2;
+                        vX *= -0.95;
+                        vY *= 1.1;
+                    } else {
+                        lX = currObj.x1 - 2;
+                        vX *= -0.95;
+                        vY *= 1.1;
+                    }
+                }
+            }
+        });
+
+        // start vel calc
         vX *= 0.95;
         if (lY < 488) {
             vY += 5;
@@ -61,6 +95,7 @@ public class Player2d {
         if (lY >= 488) {
             vY = (float) -0.8 * vY;
             lY = 488;
+            vX *= 0.95;
         }
         velocity = new Vector2d(vX,vY);
         if (Math.abs(vX) < 0.1) vX = 0;
