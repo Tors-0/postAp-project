@@ -12,8 +12,8 @@ public class VerletSolver {
     Vector2d toObj;
     float dist;
     Vector2d n;
-    VerletObject obj1 = new VerletObject();
-    VerletObject obj2 = new VerletObject();
+    VerletObject obj1;
+    VerletObject obj2;
     Vector2d collisionAxis;
     float solveDist;
     Vector2d solveN;
@@ -58,16 +58,16 @@ public class VerletSolver {
     private void solveCollisions() {
         int objCount = VerlPhysObjs.size();
         for(int i = 0; i < objCount; ++i) {
-            obj1 = VerlPhysObj.get(i);
+            obj1 = VerlPhysObjs.get(i);
             for(int j = i + 1; j < objCount; ++j) {
-                obj2 = VerlPhysObj.get(k);
+                obj2 = VerlPhysObjs.get(j);
                 collisionAxis = obj1.getPosCurrent().sub(obj2.getPosCurrent());
-                solveDist = obj2.distance(collisionAxis);
+                solveDist = (float) obj2.getPosCurrent().distance(collisionAxis);
                 if(dist < 100.0f) {
                     solveN = collisionAxis.div(dist);
                     delta = 100.0f - dist;
-                    obj1.setPosCurrent(obj1.getPosCurrent().add(0.5f * delta * n));
-                    obj2.setPosCurrent(obj2.getPosCurrent().sub(0.5f * delta * n));
+                    obj1.setPosCurrent(obj1.getPosCurrent().add(n.mul(0.5f * delta)));
+                    obj2.setPosCurrent(obj2.getPosCurrent().sub(n.mul(0.5f * delta)));
                }
             }
         }
