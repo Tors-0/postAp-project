@@ -118,7 +118,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(UP);
-            Client2.p.addForce(new Vector2d(0,d));
+            Client2.p.addForce(new Vector2d(0,d * 10));
         }
     };
     private static final String DOWN = "Down";
@@ -126,7 +126,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(DOWN);
-            Client2.p.addForce(new Vector2d(0,-d));
+            Client2.p.addForce(new Vector2d(0,-d * 5));
         }
     };
 
