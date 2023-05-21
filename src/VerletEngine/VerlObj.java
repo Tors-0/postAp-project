@@ -164,7 +164,7 @@ public class VerlObj {
         }
     }
     /*
-    Movement calls are in DrawingPanel around line 100-130
+    Movement calls are in Render.DrawingPanel around line 100-130
      */
     public void move(VectorC2d v) {
         movement = v;
