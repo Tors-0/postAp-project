@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="physics updates for Player.java" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Pbh3cApPWuBbXzUqqIWo83ew3f" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;temurin-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/rae/IdeaProjects/postAp-project/jogl-v2.4.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/unused" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="" />
+      <created>1683731490176</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683731490176</updated>
+    </task>
+    <task id="LOCAL-00001" summary="project init">
+      <created>1683732323847</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683732323847</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update structure">
+      <created>1683736056123</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683736056123</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add JOGL to classpath and files">
+      <created>1683856092915</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683856092915</updated>
+    </task>
+    <task id="LOCAL-00004" summary="remove JOGL, yoink from lwjglgamedev, etc...">
+      <created>1683918539192</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683918539192</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add VectorUtils.java">
+      <created>1684169699077</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684169699077</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix VectorUtils.java, implement it">
+      <created>1684170643052</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684170643052</updated>
+    </task>
+    <task id="LOCAL-00007" summary="begin Player2d.java">
+      <created>1684376425944</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684376425944</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed the stupid physics god that was dumb lmao">
+      <created>1684435118188</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684435118188</updated>
+    </task>
+    <task id="LOCAL-00009" summary="new things?">
+      <created>1684436169523</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684436169523</updated>
+    </task>
+    <task id="LOCAL-00010" summary="implement Rectangle - TODO add to physics + render">
+      <created>1684447648987</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684447648987</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add info on universal gravitation">
+      <created>1684517561012</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684517561012</updated>
+    </task>
+    <task id="LOCAL-00012" summary="create VectorC2d.java">
+      <created>1684520825084</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684520825084</updated>
+    </task>
+    <task id="LOCAL-00013" summary="started terminal velocity implementation - goal is that as yVel approaches tV, yAcc = 0">
+      <created>1684523286947</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1684523286947</updated>
+    </task>
+    <task id="LOCAL-00014" summary="physics updates for Player.java">
+      <created>1684536506220</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1684536506220</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="project init" />
+    <MESSAGE value="update structure" />
+    <MESSAGE value="add JOGL to classpath and files" />
+    <MESSAGE value="remove JOGL, yoink from lwjglgamedev, etc..." />
+    <MESSAGE value="add VectorUtils.java" />
+    <MESSAGE value="fix VectorUtils.java, implement it" />
+    <MESSAGE value="begin Player2d.java" />
+    <MESSAGE value="fixed the stupid physics god that was dumb lmao" />
+    <MESSAGE value="new things?" />
+    <MESSAGE value="implement Rectangle - TODO add to physics + render" />
+    <MESSAGE value="add info on universal gravitation" />
+    <MESSAGE value="create VectorC2d.java" />
+    <MESSAGE value="started terminal velocity implementation - goal is that as yVel approaches tV, yAcc = 0" />
+    <MESSAGE value="physics updates for Player.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="physics updates for Player.java" />
+  </component>
+</project>
