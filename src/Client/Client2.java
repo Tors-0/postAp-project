@@ -58,5 +58,6 @@ public class Client2 {
         // here we do funny stuff so that we can pretend that y=0 is the bottom in our physics calculations
         g.fillRect((int) Math.round(coord.x)-offset,HEIGHT - (int) Math.round(coord.y)-offset,playerPx,playerPx);
         g.drawRect((int) Math.round(coord.x)-offset,HEIGHT - (int) Math.round(coord.y)-offset,playerPx,playerPx);
+        //g.drawLine((int) Math.round(coord.x)-offset,HEIGHT - (int) Math.round(coord.y)-offset, (int) p.getFacingPos().x, (int) p.getFacingPos().y);
     }
 }

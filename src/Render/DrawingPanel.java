@@ -25,6 +25,7 @@ Recent features:
 */
 
 import Client.Client2;
+import Engine.VectorC2d;
 import org.joml.Vector2d;
 
 import java.awt.AlphaComposite;
@@ -81,8 +82,11 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.MouseInputListener;
 import javax.swing.filechooser.FileFilter;
 
+
+
 public final class DrawingPanel extends FileFilter
     implements ActionListener, MouseMotionListener, Runnable, WindowListener {
+    private static String NAME  = "Gravitational Anomaly by Rae NJohnston and Lewis Stotler";
     // inner class to represent one frame of an animated GIF
     private static class ImageFrame {
         public Image image;
@@ -96,13 +100,13 @@ public final class DrawingPanel extends FileFilter
 
     // start custom code
 
-    int d = 80; // movement speed in pix/sec
+    int d = 5; // movement speed in pix/sec
     private static final String MOVE_L = "Left";
     private Action left = new AbstractAction(MOVE_L) {
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(MOVE_L);
-            Client2.p.addForce(new Vector2d(-d,0));
+            Client2.p.move(new Vector2d(-d,0));
         }
     };
     private static final String RIGHT = "Right";
@@ -110,7 +114,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(RIGHT);
-            Client2.p.addForce(new Vector2d(d,0));
+            Client2.p.move(new Vector2d(d,0));
         }
     };
     private static final String UP = "Up";
@@ -118,7 +122,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(UP);
-            Client2.p.addForce(new Vector2d(0,d * 10));
+            Client2.p.accelerate(new VectorC2d(0,d * 10));
         }
     };
     private static final String DOWN = "Down";
@@ -126,7 +130,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(DOWN);
-            Client2.p.addForce(new Vector2d(0,-d * 5));
+            Client2.p.accelerate(new VectorC2d(0,-d * 5));
         }
     };
 
@@ -140,7 +144,7 @@ public final class DrawingPanel extends FileFilter
     public static final String MULTIPLE_PROPERTY   = "drawingpanel.multiple";
     public static final String SAVE_PROPERTY       = "drawingpanel.save";
     public static final String ANIMATION_FILE_NAME = "_drawingpanel_animation_save.txt";
-    private static final String TITLE              = "Drawing Panel";
+    private static final String TITLE              = "Panel - " + NAME;
     private static final String COURSE_WEB_SITE = "http://www.cs.washington.edu/education/courses/cse142/12sp/drawingpanel.txt";
     private static final Color GRID_LINE_COLOR     = new Color(64, 64, 64, 128);
     private static final int GRID_SIZE             = 10;      // 10px between grid lines
@@ -584,6 +588,7 @@ public final class DrawingPanel extends FileFilter
     public void mouseMoved(MouseEvent e) {
         int x = e.getX() / currentZoom;
         int y = e.getY() / currentZoom;
+        //Client2.p.setFacing(new VectorC2d(x,y));
         setStatusBarText("(" + x + ", " + y + ")");
     }
     
