@@ -136,7 +136,7 @@ public class VerlObj {
         // apply velocity/deltaTime scaled by the mass of the object
         this.setPos(this.getPos().add(vel.div(deltaTime)));
 
-        this.setPos(this.getPos().add(movement));
+        this.setPos(this.getPos().add(movement.div(deltaTime)));
     }
     public void collision() {
         scene.GameRectObjs.forEach(currentObj -> {
