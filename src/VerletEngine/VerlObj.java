@@ -35,7 +35,7 @@ public class VerlObj {
     }
 
     public VerlObj() {
-        currentPos = new VectorC2d(scene.width() /2.0, scene.height() /2.0);
+        currentPos = new VectorC2d(scene.width() / 2.0, scene.height() / 2.0);
 
         scenePhysObjs.add(this);
     }
@@ -118,17 +118,17 @@ public class VerlObj {
         });
     }
     public void update() {
-        gravityIter();
+        gravity();
         collision();
-        iterate();
+        // iterate();
         // DO NOT DELETE! DISABLED FOR TESTING /*
         // apply dampening to acceleration
         // replace scalar with gravitational constant
         acc.y = ((acc.y - gravC) * 0.85) + gravC; // normalize vertical acceleration towards gravitational constant of 9.8 m/s^2
         acc.x *= 0.95; // normalize horizontal acceleration to zero
         // apply acceleration to velocity
-        vel = vel.add(acc.div(mass));
         vel = vel.mul(0.99f);
+        vel = vel.add(acc.div(mass));
         // apply terminal velocity, when velocity = terminal velocity, gravitational acceleration must be zero
 
         // save currentPos to tempPos
@@ -166,8 +166,8 @@ public class VerlObj {
     /*
     Movement calls are in DrawingPanel around line 100-130
      */
-    public void move(Vector2d v) {
-        currentPos.add(v.div(mass));
+    public void move(VectorC2d v) {
+        movement = v;
     }
     /*public void setFacing(VectorC2d v) {
         facingPos = v;
