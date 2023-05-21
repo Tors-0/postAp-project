@@ -2,7 +2,7 @@ package Engine;
 
 import VerletEngine.VerlObj;
 
-public class Player /*extends VerlObj*/ {
+public class Player extends VerlObj {
 
     /*
     IMPORTANT CONSIDERATION: Vector2d.add(v) modifies the original vector, making it useless for comparisons, so I made VectorC2d.add(v),
@@ -14,14 +14,10 @@ public class Player /*extends VerlObj*/ {
      */
 
 
-    public Vector2d getPos() {
-        return currentPos;
-    }
-
     public Player(float x, float y) {
-        tempPos = new VectorC2d(x,y);
-        currentPos = new VectorC2d(x,y);
-        vel = new VectorC2d(0,0);
+        this.setTempPos(new VectorC2d(x,y));
+        this.setPos(new VectorC2d(x,y));
+        this.setVel(new VectorC2d(0,0));
     }
 
 }
