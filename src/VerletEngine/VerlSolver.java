@@ -10,7 +10,7 @@ import static Client.Client2.scene;
 public class VerlSolver {
 
     private static Vector2d collisionAxis;
-    private float planetMass;
+    private static float planetMass = Math.pow(5.97219, 24);
     private static VerlObj tempObj1;
     private static VerlObj tempObj2;
     private static float distance;
@@ -33,7 +33,7 @@ public class VerlSolver {
         we could arbitrarily place a very massive object quite far from the render window to create constant downwards gravity
          */
         VerlObj.scenePhysObjs.forEach(e -> {
-            e.accelerate(new Vector2d(Client2.WIDTH / 2, 6.6743 * Math.pow((Math.pow(5.97219, 24) * e.getMass()),-11))); // in units of m^3 * kg^-1 * s^-2);
+            e.accelerate(new Vector2d(Client2.WIDTH / 2, 6.6743 * ((planetMass * e.getMass())/11))); // in units of m^3 * kg^-1 * s^-2);
         });
     }
 
