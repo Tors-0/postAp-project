@@ -27,13 +27,13 @@ public class VerlSolver {
     private static void gravityIter() {
         /* law of universal gravitation = G * ( (m1 * m2) / r*r )
         G = 6.6743 * Math.pow(10,-11) // in units of m^3 * kg^-1 * s^-2
-        m1 = mass of object 1 = Math.pow(5.97219,24);
+        m1 = mass of object 1 = Math.pow(5.97219,24); (Earth Mass)
         m2 = mass of object 2
         r = distance between centers of masses
         we could arbitrarily place a very massive object quite far from the render window to create constant downwards gravity
          */
         VerlObj.scenePhysObjs.forEach(e -> {
-            e.accelerate(new Vector2d(Client2.WIDTH / 2, 6.6743 * ((planetMass * e.getMass())/11))); // in units of m^3 * kg^-1 * s^-2);
+            e.accelerate(new Vector2d(Client2.WIDTH / 2, 6.6743 * ((planetMass * e.getMass())/Math.pow((6378 * 1000), 2)))); // in units of m^3 * kg^-1 * s^-2);
         });
     }
 
