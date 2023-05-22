@@ -33,7 +33,7 @@ public class VerlSolver {
         we could arbitrarily place a very massive object quite far from the render window to create constant downwards gravity
          */
         VerlObj.scenePhysObjs.forEach(e -> {
-            e.accelerate(new Vector2d(0, 6.6743 * Math.pow((Math.pow(5.97219, 24) * e.getMass()),-11))); // in units of m^3 * kg^-1 * s^-2);
+            e.accelerate(new Vector2d(Client2.WIDTH / 2, 6.6743 * Math.pow((Math.pow(5.97219, 24) * e.getMass()),-11))); // in units of m^3 * kg^-1 * s^-2);
         });
     }
 
