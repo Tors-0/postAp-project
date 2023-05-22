@@ -7,15 +7,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="add Client2 runtime config">
+    <list default="true" id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/remove_JOGL__yoink_from_lwjglgamedev__etc___.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/remove_JOGL__yoink_from_lwjglgamedev__etc___.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/VectorC2d.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/VectorC2d.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Environment/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Environment/Rectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DiffImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DiffImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DirectGif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DirectGif89Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Encoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifColorTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifColorTable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifPixelsEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifPixelsEncoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImageFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImageFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImagePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImagePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$IndexGif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$IndexGif89Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap$ColorRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap$ColorRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlObj.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlObj.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Client2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/VerletEngine/VerlObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VerletEngine/VerlObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VerletEngine/VerlSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VerletEngine/VerlSolver.java" afterDir="false" />
+    </list>
+    <list id="6313523b-d3c4-41cb-81d7-f485f825d3d0" name="Changes by rae" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Client/Client2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Render/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render/DrawingPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VerletEngine/VerlSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VerletEngine/VerlSolver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +70,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Engine/Player.java">
+      <ranges>
+        <range start1="14" end1="15" start2="14" end2="14" changelist="6f15086e-ab37-4d95-8b55-7eac57b75338" />
+        <range start1="17" end1="18" start2="16" end2="17" changelist="6313523b-d3c4-41cb-81d7-f485f825d3d0" />
+        <range start1="21" end1="22" start2="20" end2="20" changelist="6f15086e-ab37-4d95-8b55-7eac57b75338" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/VerletEngine/VerlSolver.java">
+      <ranges>
+        <range start1="1" end1="1" start2="1" end2="8" changelist="6313523b-d3c4-41cb-81d7-f485f825d3d0" />
+        <range start1="4" end1="4" start2="11" end2="65" changelist="6f15086e-ab37-4d95-8b55-7eac57b75338" />
+        <range start1="5" end1="5" start2="66" end2="68" changelist="6f15086e-ab37-4d95-8b55-7eac57b75338" />
+        <range start1="6" end1="6" start2="69" end2="70" changelist="6f15086e-ab37-4d95-8b55-7eac57b75338" />
+        <range start1="7" end1="7" start2="71" end2="81" changelist="6f15086e-ab37-4d95-8b55-7eac57b75338" />
+        <range start1="8" end1="8" start2="82" end2="142" changelist="6f15086e-ab37-4d95-8b55-7eac57b75338" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -49,25 +100,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;temurin-17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/rae/IdeaProjects/postAp-project/jogl-v2.4.0&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "jdk.selected.JAVA_MODULE": "temurin-17",
+    "last_opened_file_path": "/home/rae/IdeaProjects/postAp-project/jogl-v2.4.0",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.sourceCode"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
