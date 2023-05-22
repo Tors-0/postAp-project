@@ -127,7 +127,7 @@ public class VerlSolver {
                     v.x *= 0.8;
                 }
             }
-        });
+        }); /*
         if (l.x < 0) { // collide and bounce off of left edge
             l.x = 2;
             v.x *= -0.9;
@@ -138,6 +138,6 @@ public class VerlSolver {
         if (l.y > Client2.HEIGHT) { // collide and bounce off of ceiling
             l.y = Client2.HEIGHT - 2;
             v.y *= -0.9;
-        }
+        } */
     }
 }
