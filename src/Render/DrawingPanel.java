@@ -86,7 +86,7 @@ import javax.swing.filechooser.FileFilter;
 
 public final class DrawingPanel extends FileFilter
     implements ActionListener, MouseMotionListener, Runnable, WindowListener {
-    private static String NAME  = "Gravitational Anomaly by Rae NJohnston and Lewis Stotler";
+    private static String NAME  = "ERR://23¤Y%/ by Rae NJohnston and Lewis Stotler";
     // inner class to represent one frame of an animated GIF
     private static class ImageFrame {
         public Image image;
@@ -101,27 +101,27 @@ public final class DrawingPanel extends FileFilter
     // start custom code
 
     int d = 13; // movement speed in pix/sec
-    private static final String MOVE_L = "Left";
+    private static final String MOVE_L = "<";
     private Action left = new AbstractAction(MOVE_L) {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //System.out.println(MOVE_L);
-            Client2.p.move(new VectorC2d(-d,0));
+            System.out.println(MOVE_L);
+            Client2.p.accelerate(new VectorC2d(-d,0));
         }
     };
-    private static final String RIGHT = "Right";
+    private static final String RIGHT = ">";
     private Action right = new AbstractAction(RIGHT) {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //System.out.println(RIGHT);
-            Client2.p.move(new VectorC2d(d,0));
+            System.out.println(RIGHT);
+            Client2.p.accelerate(new VectorC2d(d,0));
         }
     };
-    private static final String UP = "Up";
+    private static final String UP = "^";
     private Action up = new AbstractAction(UP) {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //System.out.println(UP);
+            System.out.println(UP);
             Client2.p.accelerate(new VectorC2d(0,d * 10));
         }
     };
@@ -129,7 +129,7 @@ public final class DrawingPanel extends FileFilter
     private Action down = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            //System.out.println(DOWN);
+            System.out.println(DOWN);
             Client2.p.accelerate(new VectorC2d(0,-d * 5));
         }
     };
@@ -589,7 +589,7 @@ public final class DrawingPanel extends FileFilter
         int x = e.getX() / currentZoom;
         int y = e.getY() / currentZoom;
         //Client2.p.setFacing(new VectorC2d(x,y));
-        setStatusBarText("(" + x + ", " + y + ")");
+        //setStatusBarText("(" + x + ", " + y + ")");
     }
     
     // run on shutdown to save the image
@@ -1112,7 +1112,7 @@ public final class DrawingPanel extends FileFilter
     }
     
     // sets the text that will appear in the bottom status bar
-    private void setStatusBarText(String text) {
+    public void setStatusBarText(String text) {
         if (currentZoom != 1) {
             text += " (current zoom: " + currentZoom + "x" + ")";
         }

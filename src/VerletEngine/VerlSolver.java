@@ -1,5 +1,12 @@
 package VerletEngine;
 
+import Client.Client2;
+import Engine.VectorC2d;
+import org.joml.Vector2d;
+
+import static Client.Client2.p;
+import static Client.Client2.scene;
+
 public class VerlSolver {
 
     private static Vector2d collisionAxis;

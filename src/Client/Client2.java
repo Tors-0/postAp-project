@@ -1,17 +1,17 @@
 package Client;
 
 import Engine.Player;
+import Engine.VectorC2d;
 import Render.DrawingPanel;
 import Environment.GameSpace;
+import VerletEngine.VerlObj;
+import VerletEngine.VerlSolver;
 import org.joml.Vector2d;
-import org.lwjgl.vulkan.NVAcquireWinrtDisplay;
 
 import java.awt.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-
 
 public class Client2 {
     public static final int WIDTH = 1280;
@@ -19,10 +19,12 @@ public class Client2 {
     // creates the physics scene with the specified width and height
     public static final GameSpace scene = new GameSpace(WIDTH,HEIGHT);
     // Creates the player object
-    public static Player p = new Player(WIDTH/2,HEIGHT/2);
+    public static VerlObj p = new VerlObj(new Vector2d(WIDTH/2,HEIGHT/2),2,2.7f);
+    public static VerlObj obj1 = new VerlObj();
+    public static VerlObj obj2 = new VerlObj(new Vector2d(500, 250), 50, 10.0f);
 
     // Creates the drawing panel object
-    static DrawingPanel panel = new DrawingPanel(WIDTH, HEIGHT);
+    public static DrawingPanel panel = new DrawingPanel(WIDTH, HEIGHT);
     // Obtains the graphics object that allows for drawing on the panel
     static Graphics g = panel.getGraphics();
 
@@ -39,7 +41,7 @@ public class Client2 {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
         executor.scheduleAtFixedRate(Client2::update,0,1000/fps,TimeUnit.MILLISECONDS);
         // draw frame fps times per second
-        executor.scheduleAtFixedRate(p::update,0,1000/tps,TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(VerlSolver::update,0,1000/tps,TimeUnit.MILLISECONDS);
         // run phys calc tps times per second
 
         /*
@@ -54,6 +56,10 @@ public class Client2 {
         // Graphics API: https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
         Vector2d coord = p.getPos();
         panel.clearWithoutRepaint();
+        VerlObj.scenePhysObjs.forEach(o -> {
+            int offset = o.getRadius();
+            g.drawOval((int) o.getPos().x, (int) (HEIGHT - o.getPos().y - (2 * offset)),2 * offset,2 * offset);
+        });
         scene.GameRectObjs.forEach(current -> {
             g.drawRect(current.x1, HEIGHT - current.y1 - current.getHeight(), current.getWidth(), current.getHeight());
         });

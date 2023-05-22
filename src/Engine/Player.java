@@ -14,7 +14,7 @@ public class Player extends VerlObj {
      */
 
     public Player(float x, float y) {
-        super(new VectorC2d(x,y));
+        super(new VectorC2d(x,y),2, 2.7f);
         this.setTempPos(new VectorC2d(x,y));
         this.setVel(new VectorC2d(0,0));
     }
