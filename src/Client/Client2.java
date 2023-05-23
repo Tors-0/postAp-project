@@ -1,7 +1,5 @@
 package Client;
 
-import Engine.Player;
-import Engine.VectorC2d;
 import Render.DrawingPanel;
 import Environment.GameSpace;
 import VerletEngine.VerlObj;

@@ -24,6 +24,7 @@ Recent features:
 @version October 21, 2011
 */
 
+import Client.Client;
 import Client.Client2;
 import Engine.VectorC2d;
 import org.joml.Vector2d;
@@ -100,13 +101,14 @@ public final class DrawingPanel extends FileFilter
 
     // start custom code
 
-    int d = 13; // movement speed in pix/sec
+    int d = 50; // movement speed in pix/sec
     private static final String MOVE_L = "L";
     private Action left = new AbstractAction(MOVE_L) {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(MOVE_L);
-            Client2.p.accelerate(new Vector2d(-d,0));
+            //Client2.p.accelerate(new Vector2d(-d,0));
+            Client.player.velocirate(new Vector2d(-d,0));
         }
     };
     private static final String RIGHT = "R";
@@ -114,7 +116,8 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(RIGHT);
-            Client2.p.accelerate(new Vector2d(d,0));
+            //Client2.p.accelerate(new Vector2d(d,0));
+            Client.player.velocirate(new Vector2d(d,0));
         }
     };
     private static final String UP = "U";
@@ -122,7 +125,8 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(UP);
-            Client2.p.accelerate(new Vector2d(0,d * 10));
+            //Client2.p.accelerate(new Vector2d(0,d * 10));
+            Client.player.velocirate(new Vector2d(0,d));
         }
     };
     private static final String DOWN = "D";
@@ -130,7 +134,8 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(DOWN);
-            Client2.p.accelerate(new Vector2d(0,-d * 5));
+            //Client2.p.accelerate(new Vector2d(0,-d * 5));
+            Client.player.velocirate(new Vector2d(0,-d));
         }
     };
 

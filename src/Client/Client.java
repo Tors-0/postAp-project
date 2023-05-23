@@ -1,11 +1,9 @@
 package Client;
 
 import Engine.Player;
-import Engine.VectorC2d;
 import Render.DrawingPanel;
 import Environment.GameSpace;
 import VerletEngine.VerlObj;
-import VerletEngine.VerlSolver;
 import org.joml.Vector2d;
 
 import java.awt.*;
@@ -19,7 +17,7 @@ public class Client {
     // creates the physics scene with the specified width and height
     public static final GameSpace scene = new GameSpace(WIDTH,HEIGHT);
     // Creates the player object
-    public static Player p = new Player(new Vector2d(WIDTH/2,HEIGHT/2),2);
+    public static Player player = new Player(new Vector2d(WIDTH/2,HEIGHT/2),2);
     public static VerlObj obj1 = new VerlObj();
     public static VerlObj obj2 = new VerlObj(new Vector2d(500, 250), 50, 10.0f);
 
@@ -38,7 +36,7 @@ public class Client {
         scene.newRectangle(300,405,200,45);
 
 
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(Client::update,0,1000/fps,TimeUnit.MILLISECONDS);
         // draw frame fps times per second
         executor.scheduleAtFixedRate(Player::update,0,1000/tps,TimeUnit.MILLISECONDS);
@@ -54,7 +52,7 @@ public class Client {
     static int offset = (int) Math.round(playerPx / 2.0);
     public static void update() {
         // Graphics API: https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
-        Vector2d coord = p.getPos();
+        Vector2d coord = player.getPos();
         panel.clearWithoutRepaint();
         Player.players.forEach(o -> {
             int offset = (int) o.getRadius();
