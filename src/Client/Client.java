@@ -13,13 +13,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class Client2 {
+public class Client {
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
     // creates the physics scene with the specified width and height
     public static final GameSpace scene = new GameSpace(WIDTH,HEIGHT);
     // Creates the player object
-    public static VerlObj p = new VerlObj(new Vector2d(WIDTH/2,HEIGHT/2),2,2.7f);
+    public static Player p = new Player(new Vector2d(WIDTH/2,HEIGHT/2),2);
     public static VerlObj obj1 = new VerlObj();
     public static VerlObj obj2 = new VerlObj(new Vector2d(500, 250), 50, 10.0f);
 
@@ -39,16 +39,16 @@ public class Client2 {
 
 
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
-        executor.scheduleAtFixedRate(Client2::update,0,1000/fps,TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(Client::update,0,1000/fps,TimeUnit.MILLISECONDS);
         // draw frame fps times per second
-        executor.scheduleAtFixedRate(VerlSolver::update,0,1000/tps,TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(Player::update,0,1000/tps,TimeUnit.MILLISECONDS);
         // run phys calc tps times per second
 
         /*
-         * 
+         *
          */
-        
-        
+
+
     }
     public static int playerPx = 10;
     static int offset = (int) Math.round(playerPx / 2.0);
@@ -56,8 +56,8 @@ public class Client2 {
         // Graphics API: https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
         Vector2d coord = p.getPos();
         panel.clearWithoutRepaint();
-        VerlObj.scenePhysObjs.forEach(o -> {
-            int offset = o.getRadius();
+        Player.players.forEach(o -> {
+            int offset = (int) o.getRadius();
             g.drawOval((int) o.getPos().x, (int) (HEIGHT - o.getPos().y - (2 * offset)),2 * offset,2 * offset);
         });
         scene.GameRectObjs.forEach(current -> {

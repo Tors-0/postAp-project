@@ -10,7 +10,7 @@ import static Client.Client2.scene;
 public class VerlSolver {
 
     private static Vector2d collisionAxis;
-    private static float planetMass = Math.pow(5.97219, 24);
+    private static float planetMass = (float) Math.pow(5.97219, 24);
     private static VerlObj tempObj1;
     private static VerlObj tempObj2;
     private static float distance;
