@@ -26,6 +26,7 @@ Recent features:
 
 import Client.Client;
 import Client.Client2;
+import Client.Client3;
 import Engine.VectorC2d;
 import org.joml.Vector2d;
 
@@ -47,14 +48,7 @@ import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.PixelGrabber;
 import java.io.*;
@@ -86,8 +80,60 @@ import javax.swing.filechooser.FileFilter;
 
 
 public final class DrawingPanel extends FileFilter
-    implements ActionListener, MouseMotionListener, Runnable, WindowListener {
+    implements ActionListener, MouseMotionListener, Runnable, WindowListener, MouseListener {
     private static String NAME  = "ERR://23¤Y%/ by Rae NJohnston and Lewis Stotler";
+
+    /**
+     * Invoked when the mouse button has been clicked (pressed
+     * and released) on a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    /**
+     * Invoked when a mouse button has been pressed on a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+        Client3.clicks.launch(new Vector2d(e.getX(),e.getY()));
+    }
+
+    /**
+     * Invoked when a mouse button has been released on a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    /**
+     * Invoked when the mouse enters a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    /**
+     * Invoked when the mouse exits a component.
+     *
+     * @param e the event to be processed
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
     // inner class to represent one frame of an animated GIF
     private static class ImageFrame {
         public Image image;
@@ -107,7 +153,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(MOVE_L);
-            //Client2.p.accelerate(new Vector2d(-d,0));
+            Client2.p.accelerate(new Vector2d(-d,0));
             Client.player.velocirate(new Vector2d(-d,0));
         }
     };
@@ -116,7 +162,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(RIGHT);
-            //Client2.p.accelerate(new Vector2d(d,0));
+            Client2.p.accelerate(new Vector2d(d,0));
             Client.player.velocirate(new Vector2d(d,0));
         }
     };
@@ -125,7 +171,7 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(UP);
-            //Client2.p.accelerate(new Vector2d(0,d * 10));
+            Client2.p.accelerate(new Vector2d(0,d * 10));
             Client.player.velocirate(new Vector2d(0,d));
         }
     };
@@ -134,10 +180,11 @@ public final class DrawingPanel extends FileFilter
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(DOWN);
-            //Client2.p.accelerate(new Vector2d(0,-d * 5));
+            Client2.p.accelerate(new Vector2d(0,-d * 5));
             Client.player.velocirate(new Vector2d(0,-d));
         }
     };
+    private static final String CLICK = "C";
 
     // end custom code
     
