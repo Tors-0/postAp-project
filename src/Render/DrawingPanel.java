@@ -26,8 +26,7 @@ Recent features:
 
 import Client.Client;
 import Client.Client2;
-import Client.Client3;
-import Engine.VectorC2d;
+import Engine.Player;
 import org.joml.Vector2d;
 
 import java.awt.AlphaComposite;
@@ -80,59 +79,8 @@ import javax.swing.filechooser.FileFilter;
 
 
 public final class DrawingPanel extends FileFilter
-    implements ActionListener, MouseMotionListener, Runnable, WindowListener, MouseListener {
+    implements ActionListener, MouseMotionListener, Runnable, WindowListener {
     private static String NAME  = "ERR://23¤Y%/ by Rae NJohnston and Lewis Stotler";
-
-    /**
-     * Invoked when the mouse button has been clicked (pressed
-     * and released) on a component.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    /**
-     * Invoked when a mouse button has been pressed on a component.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void mousePressed(MouseEvent e) {
-        Client3.clicks.launch(new Vector2d(e.getX(),e.getY()));
-    }
-
-    /**
-     * Invoked when a mouse button has been released on a component.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    /**
-     * Invoked when the mouse enters a component.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    /**
-     * Invoked when the mouse exits a component.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
 
     // inner class to represent one frame of an animated GIF
     private static class ImageFrame {
@@ -184,7 +132,13 @@ public final class DrawingPanel extends FileFilter
             Client.player.velocirate(new Vector2d(0,-d));
         }
     };
-    private static final String CLICK = "C";
+    private static final String LAUNCH = "L";
+    private Action launch = new AbstractAction(LAUNCH) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Client.player.launch();
+        }
+    };
 
     // end custom code
     
@@ -490,6 +444,9 @@ public final class DrawingPanel extends FileFilter
         panel.getInputMap().put(
                 KeyStroke.getKeyStroke('s'), DOWN);
         panel.getActionMap().put(DOWN, down);
+        panel.getInputMap().put(
+                KeyStroke.getKeyStroke(' '), LAUNCH);
+        panel.getActionMap().put(LAUNCH,launch);
 
         // TODO end custom code
     }
@@ -640,10 +597,10 @@ public final class DrawingPanel extends FileFilter
     public void mouseMoved(MouseEvent e) {
         int x = e.getX() / currentZoom;
         int y = e.getY() / currentZoom;
-        //Client2.p.setFacing(new VectorC2d(x,y));
+        Player.mousePos = new Vector2d(x,y);
         //setStatusBarText("(" + x + ", " + y + ")");
     }
-    
+
     // run on shutdown to save the image
     public void run() {
         if (DEBUG) System.out.println("Running shutdown hook");

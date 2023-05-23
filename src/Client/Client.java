@@ -48,7 +48,7 @@ public class Client {
 
 
     }
-    public static int playerPx = 10;
+    public static int playerPx = 4;
     static int offset = (int) Math.round(playerPx / 2.0);
     public static void update() {
         // Graphics API: https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
