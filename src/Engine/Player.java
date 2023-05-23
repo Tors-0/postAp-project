@@ -17,7 +17,7 @@ public class Player {
     private float radius = Client.playerPx / 2.0f;
     private float deltaTime = Client.tps;
     private float mass;
-    private float gravC = -15;
+    private float gravC = -1;
     public static Vector2d mousePos;
     // ------ Constructor ------ //
     public Player(Vector2d pos, float mass) {
@@ -37,11 +37,11 @@ public class Player {
     }
     public static void physics() {
         players.forEach(p -> {
+            p.limitVel();
             p.lastPos = new Vector2d(p.currPos.x, p.currPos.y);
             p.currPos.add(p.vel);
-            p.limitVel();
             p.vel.add(p.acc);
-            p.acc.y = ((p.acc.y - p.gravC) * 0.85) + p.gravC; // normalize vertical acceleration towards gravC
+            //p.acc.y = ((p.acc.y - p.gravC) * 0.85) + p.gravC; // normalize vertical acceleration towards gravC
             p.acc.x *= 0.95; // normalize horizontal acceleration to zero
             p.vel.mul(0.99f);
             boundaries();
@@ -128,7 +128,8 @@ public class Player {
         this.vel.add(vel);
     }
     public void launch() {
-        vel = new Vector2d(mousePos.x-currPos.x,(HEIGHT - mousePos.y)-currPos.y).div(4);
+        vel = new Vector2d(mousePos.x-currPos.x,(HEIGHT - mousePos.y)-currPos.y).div(Math.sqrt(Math.pow(mousePos.x-currPos.x, 2) +
+                Math.pow((HEIGHT - mousePos.y) - currPos.y, 2))).mul(15);
         limitVel();
     }
 }

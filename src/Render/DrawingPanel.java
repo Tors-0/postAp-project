@@ -95,12 +95,12 @@ public final class DrawingPanel extends FileFilter
 
     // start custom code
 
-    int d = 50; // movement speed in pix/sec
-    private static final String MOVE_L = "L";
-    private Action left = new AbstractAction(MOVE_L) {
+    int d = 20; // movement speed in pix/sec
+    private static final String LEFT = "L";
+    private Action left = new AbstractAction(LEFT) {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(MOVE_L);
+            System.out.println(LEFT);
             Client2.p.accelerate(new Vector2d(-d,0));
             Client.player.velocirate(new Vector2d(-d,0));
         }
@@ -132,8 +132,8 @@ public final class DrawingPanel extends FileFilter
             Client.player.velocirate(new Vector2d(0,-d));
         }
     };
-    private static final String LAUNCH = "L";
-    private Action launch = new AbstractAction(LAUNCH) {
+    private static final String FLY = "F";
+    private Action fly = new AbstractAction(FLY) {
         @Override
         public void actionPerformed(ActionEvent e) {
             Client.player.launch();
@@ -433,8 +433,8 @@ public final class DrawingPanel extends FileFilter
         // TODO custom code
 
         panel.getInputMap().put(
-                KeyStroke.getKeyStroke('a'), MOVE_L);
-        panel.getActionMap().put(MOVE_L, left);
+                KeyStroke.getKeyStroke('a'), LEFT);
+        panel.getActionMap().put(LEFT, left);
         panel.getInputMap().put(
                 KeyStroke.getKeyStroke('d'), RIGHT);
         panel.getActionMap().put(RIGHT, right);
@@ -445,8 +445,8 @@ public final class DrawingPanel extends FileFilter
                 KeyStroke.getKeyStroke('s'), DOWN);
         panel.getActionMap().put(DOWN, down);
         panel.getInputMap().put(
-                KeyStroke.getKeyStroke(' '), LAUNCH);
-        panel.getActionMap().put(LAUNCH,launch);
+                KeyStroke.getKeyStroke('f'), FLY);
+        panel.getActionMap().put(FLY, fly);
 
         // TODO end custom code
     }
