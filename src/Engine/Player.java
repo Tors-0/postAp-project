@@ -70,14 +70,14 @@ public class Player {
     public static void boundaries() {
         players.forEach(p -> {
             if (p.currPos.y < p.radius) { // test lower boundary
-                p.setPos(p.getLastPos());
+                p.currPos.y = p.lastPos.y;
                 /*
                 p.vel.y *= -0.7f;
                 p.vel.x *= 0.9f;
                 p.currPos.y = p.radius;
                  */
             } else if (p.currPos.y > HEIGHT - p.radius) { // test upper boundary
-                p.setPos(p.getLastPos());
+                p.currPos.y = p.lastPos.y;
                 /*
                 p.vel.y *= -0.9f;
                 p.vel.x *= 0.9f;
@@ -86,13 +86,13 @@ public class Player {
             }
             // else-ifs to save time because it's not possible to be in two places at once
             if (p.currPos.x < p.radius) { // test left boundary
-                p.setPos(p.getLastPos());
+                p.currPos.x = p.lastPos.x;
                 /*
                 p.vel.x *= -0.9f;
                 p.vel.y *= 0.9f;
                 p.currPos.x *= -1; */
             } else if (p.currPos.x > WIDTH - p.radius) { // test right boundary
-                p.setPos(p.getLastPos());
+                p.currPos.x = p.lastPos.x;
                 /*
                 p.vel.x *= -0.9f;
                 p.vel.y *= 0.9f;
@@ -107,37 +107,24 @@ public class Player {
                 p.setAcc(new Vector2d(p.getAcc().x, 0));
             }
             scene.GameRectObjs.forEach(currObj -> {
-                if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) {
+
+                if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) { // check left edge
                     if (currObj.y1 < p.currPos.y && p.currPos.y < currObj.y2) {
-                        p.setPos(p.getLastPos());
-                        /*
-                        p.currPos.x = currObj.x1;
-                        p.vel.x *= -0.95;
-                        p.vel.y *= 1.1; */
+                        p.currPos.x = p.lastPos.x;
                     }
-                } else if (Math.abs(p.currPos.x - currObj.x2) < 10 && currObj.x2 > p.currPos.x) {
+                } else if (Math.abs(p.currPos.x - currObj.x2) < 10 && currObj.x2 > p.currPos.x) { // check right edge
                     if (currObj.y1 < p.currPos.y && p.currPos.y < currObj.y2) {
-                        p.setPos(p.getLastPos());
-                        /*
-                        p.currPos.x = currObj.x2;
-                        p.vel.x *= -0.95;
-                        p.vel.y *= 1.1; */
+                        p.currPos.x = p.lastPos.x;
                     }
                 } else if (Math.abs(p.currPos.y - p.radius - currObj.y1) < 10 && currObj.y1 - p.radius < p.currPos.y) {
+                    // check bottom
                     if (currObj.x1 < p.currPos.x && p.currPos.x < currObj.x2) {
-                        p.setPos(p.getLastPos());
-                        /*
-                        p.currPos.y = currObj.y1 - 2;
-                        p.vel.y *= -0.9;
-                        p.vel.x *= 0.8;*/
+                        p.currPos.y = p.lastPos.y;
                     }
                 } else if (Math.abs(p.currPos.y - currObj.y2) < 10 && currObj.y2 > p.currPos.y) {
+                    // check top
                     if (currObj.x1 < p.currPos.x && p.currPos.x < currObj.x2) {
-                        p.setPos(p.getLastPos());
-                        /*
-                        p.currPos.y = currObj.y2;
-                        p.vel.y *= -0.9;
-                        p.vel.x *= 0.8; */
+                        p.currPos.y = p.lastPos.y;
                     }
                 }
             });
@@ -164,6 +151,7 @@ public class Player {
     public void setTempPos(Vector2d newTP) {lastPos = newTP;}
     public void setAcc(Vector2d newAcc) {acc = newAcc;}
     // ------ Uniques ------ //
+    /* Keypress detection is in Render.DrawingPanel @ ~line 100 */
     public void velocirate(Vector2d vel) {
         this.vel.add(vel);
     }
