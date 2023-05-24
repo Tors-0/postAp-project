@@ -7,10 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="launch functions + heyyyy terminal velocity works now">
+    <list default="true" id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="starting a new thingy">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Render/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render/DrawingPanel.java" afterDir="false" />
     </list>
     <list id="6313523b-d3c4-41cb-81d7-f485f825d3d0" name="Changes by rae" comment="" />
     <option name="SHOW_DIALOG" value="false" />
