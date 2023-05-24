@@ -7,21 +7,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="Hopefully made better rectangle detection">
+    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="improve tVel calc + launch vel not affected by distance to cursor">
       <change afterPath="$PROJECT_DIR$/src/Client/OpenGLClientTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Render/OpenGl/OpenGlRenderer2d.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/remove_JOGL__yoink_from_lwjglgamedev__etc___.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/remove_JOGL__yoink_from_lwjglgamedev__etc___.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
-    </list>
-    <list id="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" name="Changes by rae" comment="">
       <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Render/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render/DrawingPanel.java" afterDir="false" />
     </list>
+    <list id="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" name="Changes by rae" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,28 +52,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/Engine/Player.java">
-      <ranges>
-        <range start1="26" end1="26" start2="26" end2="27" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
-        <range start1="51" end1="51" start2="52" end2="53" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
-        <range start1="70" end1="71" start2="72" end2="73" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="77" end1="78" start2="79" end2="80" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="86" end1="87" start2="88" end2="89" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="92" end1="93" start2="94" end2="95" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="102" end1="102" start2="104" end2="108" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
-        <range start1="103" end1="104" start2="109" end2="111" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="105" end1="110" start2="112" end2="113" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="111" end1="112" start2="114" end2="115" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="113" end1="118" start2="116" end2="117" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="120" end1="120" start2="119" end2="120" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="121" end1="126" start2="121" end2="122" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="128" end1="128" start2="124" end2="125" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="129" end1="134" start2="126" end2="127" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-        <range start1="160" end1="160" start2="153" end2="154" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -85,11 +64,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />

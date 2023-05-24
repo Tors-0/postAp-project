@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 import static Client.Client.*;
 
-public class Player {
+public class Player
+    implements ImageObserver {
     // ------ Variables ------ //
     private Vector2d lastPos;
     private Vector2d currPos;
@@ -26,11 +27,10 @@ public class Player {
     public static Vector2d mousePos;
     public boolean stopYMomentum;
     // ------ Texture ------ //
-    public static BufferedImage texture;
-    static {
-        try {
-            texture = ImageIO.read(new File("textures/player.png"));
-        } catch (IOException e) {}
+    public static Image texture = Toolkit.getDefaultToolkit().getImage("textures/player.png");
+    @Override
+    public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+        return false;
     }
     // ------ Constructor ------ //
     public Player(Vector2d pos, float mass) {
