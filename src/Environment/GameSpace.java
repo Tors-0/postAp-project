@@ -16,11 +16,13 @@ public class GameSpace {
         return height;
     }
 
-    public ArrayList<Rectangle> GameRectObjs = new ArrayList<>();
+    public ArrayList<PhysObj> GameRectObjs = new ArrayList<>();
 
     public void newRectangle(int x1, int y1, int width, int height) {
-        GameRectObjs.add(new Rectangle(x1,y1,width,height));
+        GameRectObjs.add(new PhysObj(x1,y1,width,height, "Rectangle"));
     }
 
+    public void newSphere() {
 
+    }
 }

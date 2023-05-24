@@ -41,7 +41,7 @@ public class Player {
             p.lastPos = new Vector2d(p.currPos.x, p.currPos.y);
             p.currPos.add(p.vel);
             p.vel.add(p.acc);
-            //p.acc.y = ((p.acc.y - p.gravC) * 0.85) + p.gravC; // normalize vertical acceleration towards gravC
+            p.acc.y = ((p.acc.y - p.gravC) * 0.85) + p.gravC; // normalize vertical acceleration towards gravC
             p.acc.x *= 0.95; // normalize horizontal acceleration to zero
             p.vel.mul(0.99f);
             boundaries();
@@ -56,23 +56,33 @@ public class Player {
     public static void boundaries() {
         players.forEach(p -> {
             if (p.currPos.y < p.radius) { // test lower boundary
+                p.setPos(p.getLastPos());
+                /*
                 p.vel.y *= -0.7f;
                 p.vel.x *= 0.9f;
                 p.currPos.y = p.radius;
+                 */
             } else if (p.currPos.y > HEIGHT - p.radius) { // test upper boundary
+                p.setPos(p.getLastPos());
+                /*
                 p.vel.y *= -0.9f;
                 p.vel.x *= 0.9f;
                 p.currPos.y = ((p.currPos.y - HEIGHT) * -1) + HEIGHT;
+                 */
             }
             // else-ifs to save time because it's not possible to be in two places at once
             if (p.currPos.x < p.radius) { // test left boundary
+                p.setPos(p.getLastPos());
+                /*
                 p.vel.x *= -0.9f;
                 p.vel.y *= 0.9f;
-                p.currPos.x *= -1;
+                p.currPos.x *= -1; */
             } else if (p.currPos.x > WIDTH - p.radius) { // test right boundary
+                p.setPos(p.getLastPos());
+                /*
                 p.vel.x *= -0.9f;
                 p.vel.y *= 0.9f;
-                p.currPos.x = ((p.currPos.x - WIDTH) * -1) + WIDTH;
+                p.currPos.x = ((p.currPos.x - WIDTH) * -1) + WIDTH; */
             }
         });
     }
@@ -81,27 +91,35 @@ public class Player {
             scene.GameRectObjs.forEach(currObj -> {
                 if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) {
                     if (currObj.y1 < p.currPos.y && p.currPos.y < currObj.y2) {
+                        p.setPos(p.getLastPos());
+                        /*
                         p.currPos.x = currObj.x1;
                         p.vel.x *= -0.95;
-                        p.vel.y *= 1.1;
+                        p.vel.y *= 1.1; */
                     }
                 } else if (Math.abs(p.currPos.x - currObj.x2) < 10 && currObj.x2 > p.currPos.x) {
                     if (currObj.y1 < p.currPos.y && p.currPos.y < currObj.y2) {
+                        p.setPos(p.getLastPos());
+                        /*
                         p.currPos.x = currObj.x2;
                         p.vel.x *= -0.95;
-                        p.vel.y *= 1.1;
+                        p.vel.y *= 1.1; */
                     }
                 } else if (Math.abs(p.currPos.y - p.radius - currObj.y1) < 10 && currObj.y1 - p.radius < p.currPos.y) {
                     if (currObj.x1 < p.currPos.x && p.currPos.x < currObj.x2) {
+                        p.setPos(p.getLastPos());
+                        /*
                         p.currPos.y = currObj.y1 - 2;
                         p.vel.y *= -0.9;
-                        p.vel.x *= 0.8;
+                        p.vel.x *= 0.8;*/
                     }
                 } else if (Math.abs(p.currPos.y - currObj.y2) < 10 && currObj.y2 > p.currPos.y) {
                     if (currObj.x1 < p.currPos.x && p.currPos.x < currObj.x2) {
+                        p.setPos(p.getLastPos());
+                        /*
                         p.currPos.y = currObj.y2;
                         p.vel.y *= -0.9;
-                        p.vel.x *= 0.8;
+                        p.vel.x *= 0.8; */
                     }
                 }
             });
@@ -120,9 +138,13 @@ public class Player {
     public Vector2d getPos() {
         return currPos;
     }
+    public Vector2d getLastPos() {return lastPos;}
     public float getRadius() {
         return radius;
     }
+    public void setPos(Vector2d newP) {currPos = newP;}
+    public void setTempPos(Vector2d newTP) {lastPos = newTP;}
+    public void setAcc(Vector2d newAcc) {acc = newAcc;}
     // ------ Uniques ------ //
     public void velocirate(Vector2d vel) {
         this.vel.add(vel);

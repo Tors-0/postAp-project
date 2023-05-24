@@ -4,6 +4,7 @@ import Client.Client2;
 import Engine.VectorC2d;
 import org.joml.Vector2d;
 
+import static Client.Client.player;
 import static Client.Client2.p;
 import static Client.Client2.scene;
 
@@ -101,32 +102,13 @@ public class VerlSolver {
     public static void rectCollision() {
         Vector2d l = Client2.p.getPos();
         Vector2d v = Client2.p.getVel();
-        scene.GameRectObjs.forEach(currObj -> {
-            if (Math.abs(l.x - currObj.x1) < 10 && currObj.x1 < l.x) {
-                if (currObj.y1 < l.y && l.y < currObj.y2) {
-                    l.x = currObj.x1;
-                    v.x *= -0.95;
-                    v.y *= 1.1;
+        player.players.forEach(currPlayer -> {
+            scene.GameRectObjs.forEach(currObj -> {
+                if ((currObj.getX1() < currPlayer.getPos().x) && (currPlayer.getPos().x < currObj.getX2())   &&  ((currObj.getY1() < currPlayer.getPos().y) && (currPlayer.getPos().y < currObj.getY2()) )){
+                    currPlayer.setPos(currPlayer.getLastPos());
+                    currPlayer.setAcc(new Vector2d(0.0f, 0.0f));
                 }
-            } else if (Math.abs(l.x - currObj.x2) < 10 && currObj.x2 > l.x) {
-                if (currObj.y1 < l.y && l.y < currObj.y2) {
-                    l.x = currObj.x2;
-                    v.x *= -0.95;
-                    v.y *= 1.1;
-                }
-            } else if (Math.abs(l.y-2 - currObj.y1) < 10 && currObj.y1-2 < l.y) {
-                if (currObj.x1 < l.x && l.x < currObj.x2) {
-                    l.y = currObj.y1-2;
-                    v.y *= -0.9;
-                    v.x *= 0.8;
-                }
-            } else if (Math.abs(l.y - currObj.y2) < 10 && currObj.y2 > l.y) {
-                if (currObj.x1 < l.x && l.x < currObj.x2) {
-                    l.y = currObj.y2;
-                    v.y *= -0.9;
-                    v.x *= 0.8;
-                }
-            }
+            });
         }); /*
         if (l.x < 0) { // collide and bounce off of left edge
             l.x = 2;
