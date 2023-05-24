@@ -7,42 +7,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="Hopefully made better rectangle detection">
+    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="Hopefully made better rectangle detection">
+      <change afterPath="$PROJECT_DIR$/src/Client/OpenGLClientTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Render/OpenGl/OpenGlRenderer2d.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/remove_JOGL__yoink_from_lwjglgamedev__etc___.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/remove_JOGL__yoink_from_lwjglgamedev__etc___.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Environment/Rectangle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DiffImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DiffImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DirectGif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DirectGif89Frame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Encoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Frame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifColorTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifColorTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifPixelsEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifPixelsEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImageFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImageFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImagePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImagePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$IndexGif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$IndexGif89Frame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap$ColorRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap$ColorRecord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlObj.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlObj.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Environment/GameSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/GameSpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Environment/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/PhysObj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VerletEngine/VerlSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VerletEngine/VerlSolver.java" afterDir="false" />
     </list>
-    <list id="6313523b-d3c4-41cb-81d7-f485f825d3d0" name="Changes by rae" comment="" />
+    <list id="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" name="Changes by rae" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Render/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render/DrawingPanel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +51,28 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Engine/Player.java">
+      <ranges>
+        <range start1="26" end1="26" start2="26" end2="27" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="51" end1="51" start2="52" end2="53" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="70" end1="71" start2="72" end2="73" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="77" end1="78" start2="79" end2="80" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="86" end1="87" start2="88" end2="89" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="92" end1="93" start2="94" end2="95" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="102" end1="102" start2="104" end2="108" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="103" end1="104" start2="109" end2="111" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="105" end1="110" start2="112" end2="113" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="111" end1="112" start2="114" end2="115" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="113" end1="118" start2="116" end2="117" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="120" end1="120" start2="119" end2="120" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="121" end1="126" start2="121" end2="122" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="128" end1="128" start2="124" end2="125" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="129" end1="134" start2="126" end2="127" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+        <range start1="160" end1="160" start2="153" end2="154" changelist="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -84,10 +85,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -123,6 +125,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OpenGlClientTest" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Client.OpenGLClientTest" />
+      <module name="postAp-project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.OpenGlClientTest" />
+      <item itemvalue="Application.Client2" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -303,5 +317,9 @@
     <MESSAGE value="launch functions + heyyyy terminal velocity works now" />
     <MESSAGE value="Hopefully made better rectangle detection" />
     <option name="LAST_COMMIT_MESSAGE" value="Hopefully made better rectangle detection" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

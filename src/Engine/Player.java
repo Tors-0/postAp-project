@@ -24,6 +24,7 @@ public class Player {
     private float mass;
     private float gravC = -1;
     public static Vector2d mousePos;
+    public boolean stopYMomentum;
     // ------ Texture ------ //
     public static BufferedImage texture;
     static {
@@ -49,6 +50,7 @@ public class Player {
     }
     public static void physics() {
         players.forEach(p -> {
+            p.stopYMomentum = false;
             p.limitVel();
             p.lastPos = new Vector2d(p.currPos.x, p.currPos.y);
             p.currPos.add(p.vel);
@@ -100,6 +102,10 @@ public class Player {
     }
     public static void rectCollision() {
         players.forEach(p -> {
+            if (p.getAcc().y < 0) {
+                p.stopYMomentum = true;
+                p.setAcc(new Vector2d(p.getAcc().x, 0));
+            }
             scene.GameRectObjs.forEach(currObj -> {
                 if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) {
                     if (currObj.y1 < p.currPos.y && p.currPos.y < currObj.y2) {
