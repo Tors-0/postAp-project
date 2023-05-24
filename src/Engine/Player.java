@@ -3,6 +3,11 @@ package Engine;
 import Client.Client;
 import org.joml.Vector2d;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static Client.Client.*;
@@ -19,6 +24,13 @@ public class Player {
     private float mass;
     private float gravC = -1;
     public static Vector2d mousePos;
+    // ------ Texture ------ //
+    public static BufferedImage texture;
+    static {
+        try {
+            texture = ImageIO.read(new File("textures/player.png"));
+        } catch (IOException e) {}
+    }
     // ------ Constructor ------ //
     public Player(Vector2d pos, float mass) {
         lastPos = pos;
