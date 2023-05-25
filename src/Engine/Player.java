@@ -49,18 +49,17 @@ public class Player
         rectCollision();
         playerCollision();
     }
-    public static void physics() {
-        players.forEach(p -> {
-            p.stopYMomentum = false;
-            p.limitVel();
-            p.lastPos = new Vector2d(p.currPos);
-            p.currPos = p.currPos.add(p.vel); // TODO WHY THIS LINE NO WORKY :(
-            p.vel.add(p.acc);
-            p.acc.y = ((p.acc.y - p.gravC) * 0.85) + p.gravC; // normalize vertical acceleration towards gravC
-            p.acc.x *= 0.95; // normalize horizontal acceleration to zero
-            p.vel.mul(0.99f);
-            boundaries();
-        });
+    public void physics() {
+        stopYMomentum = false;
+        limitVel();
+        lastPos = new Vector2d(currPos);
+        vel.add(acc);
+        acc.y = ((acc.y - gravC) * 0.85) + gravC; // normalize vertical acceleration towards gravC
+        acc.x *= 0.95; // normalize horizontal acceleration to zero
+        vel.mul(0.99f);
+        setPos(getPos().add(getVel())); // TODO WHY THIS LINE NO WORKY :(
+        currPos.x += getVel().x;
+        currPos.y += getVel().y;
     }
     public void limitVel() {
         float absVel = (float) Math.sqrt(Math.pow(vel.x, 2) + Math.pow(vel.y, 2));
@@ -101,14 +100,13 @@ public class Player
             }
         });
     }
-    public static void rectCollision() {
-        players.forEach(p -> {
-            if (p.getAcc().y < 0) {
-                p.stopYMomentum = true;
-                p.setAcc(new Vector2d(p.getAcc().x, 0));
-            }
-            scene.GameRectObjs.forEach(currObj -> {
 
+    public void rectCollision() {
+        scene.GameRectObjs.forEach(r -> {
+            if (r.x1 < currPos.x && currPos.x < r.x2 && r.y1 < currPos.y && currPos.y < r.y2) {
+                currPos = new Vector2d(lastPos);
+            }
+            /* old code
                 if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) { // check left edge
                     if (currObj.y1 < p.currPos.y && p.currPos.y < currObj.y2) {
                         p.currPos.x = p.lastPos.x;

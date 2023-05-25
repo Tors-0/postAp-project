@@ -1,125 +1,242 @@
 package Render.OpenGl;
+
+import org.joml.*;
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
+import org.joml.Math;
 
+import java.io.IOException;
 import java.nio.*;
 
-import static org.lwjgl.glfw.Callbacks.*;
+import static Render.OpenGl.IOUtils.*;
 import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.opengl.ARBFragmentShader.GL_FRAGMENT_SHADER_ARB;
+import static org.lwjgl.opengl.ARBShaderObjects.*;
+import static org.lwjgl.opengl.ARBVertexShader.GL_VERTEX_SHADER_ARB;
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.system.MemoryStack.*;
-import static org.lwjgl.system.MemoryUtil.*;
-
-import org.lwjgl.*;
-import org.lwjgl.glfw.*;
-import org.lwjgl.opengl.*;
-import org.lwjgl.system.*;
-
-import java.nio.*;
-
-import static org.lwjgl.glfw.Callbacks.*;
-import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.system.MemoryStack.*;
+import static org.lwjgl.stb.STBImage.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 public class OpenGlRenderer2d {
+    long window;
+    int winWidth = 1920;
+    int winHeight = 1080;
+    int fbWidth = 1024;
+    int fbHeight = 768;
+    float fov = 30.0f, rotX, rotY;
 
-    // The window handle
-    private long window;
+    ByteBuffer vertices;
+    int invViewProjUniform;
 
-    public void run() {
-        System.out.println("Hello LWJGL " + Version.getVersion() + "!");
+    Matrix4f projMatrix = new Matrix4f();
+    Matrix4x3f viewMatrix = new Matrix4x3f();
+    Matrix4f invViewProjMatrix = new Matrix4f();
+    FloatBuffer matrixBuffer = BufferUtils.createFloatBuffer(16);
 
-        init();
-        loop();
+    GLCapabilities caps;
+    GLFWKeyCallback keyCallback;
+    GLFWFramebufferSizeCallback fbCallback;
+    GLFWCursorPosCallback cpCallback;
+    GLFWScrollCallback sCallback;
+    Callback debugProc;
 
-        // Free the window callbacks and destroy the window
-        glfwFreeCallbacks(window);
-        glfwDestroyWindow(window);
-
-        // Terminate GLFW and free the error callback
-        glfwTerminate();
-        glfwSetErrorCallback(null).free();
-    }
-
-    private void init() {
-        // Setup an error callback. The default implementation
-        // will print the error message in System.err.
-        GLFWErrorCallback.createPrint(System.err).set();
-
-        // Initialize GLFW. Most GLFW functions will not work before doing this.
-        if ( !glfwInit() )
+    private void init() throws IOException {
+        if (!glfwInit())
             throw new IllegalStateException("Unable to initialize GLFW");
 
-        // Configure GLFW
-        glfwDefaultWindowHints(); // optional, the current window hints are already the default
-        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
+        glfwDefaultWindowHints();
+        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+        window = glfwCreateWindow(winWidth, winHeight, "Spherical environment mapping demo", NULL, NULL);
+        if (window == NULL)
+            throw new AssertionError("Failed to create the GLFW window");
 
-        // Create the window
-        window = glfwCreateWindow(300, 300, "Hello World!", NULL, NULL);
-        if ( window == NULL )
-            throw new RuntimeException("Failed to create the GLFW window");
-
-        // Setup a key callback. It will be called every time a key is pressed, repeated or released.
-        glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
-            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
-                glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+        System.out.println("Move the mouse to look around");
+        System.out.println("Zoom in/out with mouse wheel");
+        glfwSetFramebufferSizeCallback(window, fbCallback = new GLFWFramebufferSizeCallback() {
+            @Override
+            public void invoke(long window, int width, int height) {
+                if (width > 0 && height > 0 && (OpenGlRenderer2d.this.fbWidth != width || OpenGlRenderer2d.this.fbHeight != height)) {
+                    OpenGlRenderer2d.this.fbWidth = width;
+                    OpenGlRenderer2d.this.fbHeight = height;
+                }
+            }
+        });
+        glfwSetKeyCallback(window, keyCallback = new GLFWKeyCallback() {
+            @Override
+            public void invoke(long window, int key, int scancode, int action, int mods) {
+                if (action != GLFW_RELEASE)
+                    return;
+                if (key == GLFW_KEY_ESCAPE) {
+                    glfwSetWindowShouldClose(window, true);
+                }
+            }
+        });
+        glfwSetCursorPosCallback(window, cpCallback = new GLFWCursorPosCallback() {
+            @Override
+            public void invoke(long window, double x, double y) {
+                float nx = (float) x / winWidth * 2.0f - 1.0f;
+                float ny = (float) y / winHeight * 2.0f - 1.0f;
+                rotX = ny * (float) Math.PI * 0.5f;
+                rotY = nx * (float) Math.PI;
+            }
+        });
+        glfwSetScrollCallback(window, sCallback = new GLFWScrollCallback() {
+            @Override
+            public void invoke(long window, double xoffset, double yoffset) {
+                if (yoffset < 0)
+                    fov *= 1.05f;
+                else
+                    fov *= 1f/1.05f;
+                if (fov < 10.0f)
+                    fov = 10.0f;
+                else if (fov > 120.0f)
+                    fov = 120.0f;
+            }
         });
 
-        // Get the thread stack and push a new frame
-        try ( MemoryStack stack = stackPush() ) {
-            IntBuffer pWidth = stack.mallocInt(1); // int*
-            IntBuffer pHeight = stack.mallocInt(1); // int*
-
-            // Get the window size passed to glfwCreateWindow
-            glfwGetWindowSize(window, pWidth, pHeight);
-
-            // Get the resolution of the primary monitor
-            GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-
-            // Center the window
-            glfwSetWindowPos(
-                    window,
-                    (vidmode.width() - pWidth.get(0)) / 2,
-                    (vidmode.height() - pHeight.get(0)) / 2
-            );
-        } // the stack frame is popped automatically
-
-        // Make the OpenGL context current
+        GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+        glfwSetWindowPos(window, (vidmode.width() - winWidth) / 2, (vidmode.height() - winHeight) / 2);
         glfwMakeContextCurrent(window);
-        // Enable v-sync
-        glfwSwapInterval(1);
-
-        // Make the window visible
+        glfwSwapInterval(0);
         glfwShowWindow(window);
+        glfwSetCursorPos(window, winWidth / 2, winHeight / 2);
+
+        try (MemoryStack frame = MemoryStack.stackPush()) {
+            IntBuffer framebufferSize = frame.mallocInt(2);
+            nglfwGetFramebufferSize(window, memAddress(framebufferSize), memAddress(framebufferSize) + 4);
+            winWidth = framebufferSize.get(0);
+            winHeight = framebufferSize.get(1);
+        }
+
+        caps = GL.createCapabilities();
+        if (!caps.GL_ARB_shader_objects)
+            throw new AssertionError("This demo requires the ARB_shader_objects extension.");
+        if (!caps.GL_ARB_vertex_shader)
+            throw new AssertionError("This demo requires the ARB_vertex_shader extension.");
+        if (!caps.GL_ARB_fragment_shader)
+            throw new AssertionError("This demo requires the ARB_fragment_shader extension.");
+        debugProc = GLUtil.setupDebugMessageCallback();
+
+        /* Create all needed GL resources */
+        createTexture();
+        createFullScreenQuad();
+        createProgram();
     }
 
-    private void loop() {
-        // This line is critical for LWJGL's interoperation with GLFW's
-        // OpenGL context, or any context that is managed externally.
-        // LWJGL detects the context that is current in the current thread,
-        // creates the GLCapabilities instance and makes the OpenGL
-        // bindings available for use.
-        GL.createCapabilities();
+    void createFullScreenQuad() {
+        vertices = BufferUtils.createByteBuffer(4 * 2 * 6);
+        FloatBuffer fv = vertices.asFloatBuffer();
+        fv.put(-1.0f).put(-1.0f);
+        fv.put( 1.0f).put(-1.0f);
+        fv.put( 1.0f).put( 1.0f);
+        fv.put( 1.0f).put( 1.0f);
+        fv.put(-1.0f).put( 1.0f);
+        fv.put(-1.0f).put(-1.0f);
+        glEnableClientState(GL_VERTEX_ARRAY);
+        glVertexPointer(2, GL_FLOAT, 0, vertices);
+    }
 
-        // Set the clear color
-        glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+    static int createShader(String resource, int type) throws IOException {
+        int shader = glCreateShaderObjectARB(type);
+        ByteBuffer source = ioResourceToByteBuffer(resource, 1024);
+        PointerBuffer strings = BufferUtils.createPointerBuffer(1);
+        IntBuffer lengths = BufferUtils.createIntBuffer(1);
+        strings.put(0, source);
+        lengths.put(0, source.remaining());
+        glShaderSourceARB(shader, strings, lengths);
+        glCompileShaderARB(shader);
+        int compiled = glGetObjectParameteriARB(shader, GL_OBJECT_COMPILE_STATUS_ARB);
+        String shaderLog = glGetInfoLogARB(shader);
+        if (shaderLog.trim().length() > 0) {
+            System.err.println(shaderLog);
+        }
+        if (compiled == 0) {
+            throw new AssertionError("Could not compile shader");
+        }
+        return shader;
+    }
 
-        // Run the rendering loop until the user has attempted to close
-        // the window or has pressed the ESCAPE key.
-        while ( !glfwWindowShouldClose(window) ) {
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
+    void createProgram() throws IOException {
+        int program = glCreateProgramObjectARB();
+        int vshader = createShader("shaders/environment.vs", GL_VERTEX_SHADER_ARB);
+        int fshader = createShader("shaders/environment.fs", GL_FRAGMENT_SHADER_ARB);
+        glAttachObjectARB(program, vshader);
+        glAttachObjectARB(program, fshader);
+        glLinkProgramARB(program);
+        int linked = glGetObjectParameteriARB(program, GL_OBJECT_LINK_STATUS_ARB);
+        String programLog = glGetInfoLogARB(program);
+        if (programLog.trim().length() > 0) {
+            System.err.println(programLog);
+        }
+        if (linked == 0) {
+            throw new AssertionError("Could not link program");
+        }
+        glUseProgramObjectARB(program);
+        int texLocation = glGetUniformLocationARB(program, "tex");
+        glUniform1iARB(texLocation, 0);
+        invViewProjUniform = glGetUniformLocationARB(program, "invViewProj");
+    }
 
-            glfwSwapBuffers(window); // swap the color buffers
+    static void createTexture() throws IOException {
+        int tex = glGenTextures();
+        glBindTexture(GL_TEXTURE_2D, tex);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        ByteBuffer imageBuffer;
+        IntBuffer w = BufferUtils.createIntBuffer(1);
+        IntBuffer h = BufferUtils.createIntBuffer(1);
+        IntBuffer comp = BufferUtils.createIntBuffer(1);
+        ByteBuffer image;
+        imageBuffer = ioResourceToByteBuffer("textures/environment.png", 8 * 1024);
+        if (!stbi_info_from_memory(imageBuffer, w, h, comp))
+            throw new IOException("Failed to read image information: " + stbi_failure_reason());
+        image = stbi_load_from_memory(imageBuffer, w, h, comp, 3);
+        if (image == null)
+            throw new IOException("Failed to load image: " + stbi_failure_reason());
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, w.get(0), h.get(0), 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+        stbi_image_free(image);
+    }
 
-            // Poll for window events. The key callback above will only be
-            // invoked during this call.
+    void update() {
+        projMatrix.setPerspective((float) Math.toRadians(fov), (float) winWidth / winHeight, 0.01f, 100.0f);
+        viewMatrix.rotationX(rotX).rotateY(rotY);
+        projMatrix.invertPerspectiveView(viewMatrix, invViewProjMatrix);
+        glUniformMatrix4fvARB(invViewProjUniform, false, invViewProjMatrix.get(matrixBuffer));
+    }
+
+    static void render() {
+        glClear(GL_COLOR_BUFFER_BIT);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+    }
+
+    void loop() {
+        while (!glfwWindowShouldClose(window)) {
             glfwPollEvents();
+            glViewport(0, 0, fbWidth, fbHeight);
+            update();
+            render();
+            glfwSwapBuffers(window);
+        }
+    }
+
+    public void run() {
+        try {
+            init();
+            loop();
+            if (debugProc != null) {
+                debugProc.free();
+            }
+            cpCallback.free();
+            keyCallback.free();
+            fbCallback.free();
+            glfwDestroyWindow(window);
+        } catch (Throwable t) {
+            t.printStackTrace();
+        } finally {
+            glfwTerminate();
         }
     }
 }
-
