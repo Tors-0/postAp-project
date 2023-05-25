@@ -27,10 +27,10 @@ public class Client {
     // Creates the drawing panel object
     public static DrawingPanel panel = new DrawingPanel(WIDTH, HEIGHT);
     // Obtains the graphics object that allows for drawing on the panel
-    static Graphics g = panel.getGraphics();
+    static Graphics2D g = panel.getGraphics();
 
-    public static final int fps = 15;
-    public static final int tps = 30;
+    public static final int fps = 10;
+    public static final int tps = 20;
     public static void main(String[] args){
 
         scene.newRectangle(600,250,201,30);
@@ -39,17 +39,11 @@ public class Client {
         scene.newRectangle(300,405,200,45);
 
 
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
         executor.scheduleAtFixedRate(Client::update,0,1000/fps,TimeUnit.MILLISECONDS);
         // draw frame fps times per second
         executor.scheduleAtFixedRate(Player::update,0,1000/tps,TimeUnit.MILLISECONDS);
         // run phys calc tps times per second
-
-        /*
-         *
-         */
-
-
     }
     public static int playerPx = 4;
     static int offset = (int) Math.round(playerPx / 2.0);

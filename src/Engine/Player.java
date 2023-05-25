@@ -26,6 +26,7 @@ public class Player
     private float gravC = -1;
     public static Vector2d mousePos;
     public boolean stopYMomentum;
+    public static String status;
     // ------ Texture ------ //
     public static Image texture = Toolkit.getDefaultToolkit().getImage("textures/player.png");
     @Override
@@ -43,7 +44,7 @@ public class Player
     }
     // ------ Solver ------ //
     public static void update() {
-        Client.panel.setStatusBarText("pos" + player.currPos.toString() + ",vel" + player.getVel().toString() + ",acc" + player.getAcc().toString());
+        panel.setStatusBarText("pos" + player.currPos.toString() + ",vel" + player.getVel().toString() + ",acc" + player.getAcc().toString() + "mou" + mousePos.toString());
         physics();
         rectCollision();
         playerCollision();
@@ -53,7 +54,7 @@ public class Player
             p.stopYMomentum = false;
             p.limitVel();
             p.lastPos = new Vector2d(p.currPos);
-            p.currPos.add(p.vel);
+            p.currPos = p.currPos.add(p.vel); // TODO WHY THIS LINE NO WORKY :(
             p.vel.add(p.acc);
             p.acc.y = ((p.acc.y - p.gravC) * 0.85) + p.gravC; // normalize vertical acceleration towards gravC
             p.acc.x *= 0.95; // normalize horizontal acceleration to zero
@@ -156,8 +157,8 @@ public class Player
         this.vel.add(vel);
     }
     public void launch() {
-        vel = new Vector2d(mousePos.x-currPos.x,(HEIGHT - mousePos.y)-currPos.y).div(Math.sqrt(Math.pow(mousePos.x-currPos.x, 2) +
-                Math.pow((HEIGHT - mousePos.y) - currPos.y, 2))).mul(15);
+        vel = new Vector2d(mousePos.x-currPos.x,(HEIGHT - mousePos.y)-currPos.y).div(Math.sqrt(Math.pow(mousePos.x-currPos.x, 2)
+                + Math.pow((HEIGHT - mousePos.y) - currPos.y, 2))).mul(15);
         limitVel();
     }
 }

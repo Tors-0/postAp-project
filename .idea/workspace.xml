@@ -7,19 +7,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Client/OpenGLClientTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Render/OpenGl/OpenGlRenderer2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/remove_JOGL__yoink_from_lwjglgamedev__etc___.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/remove_JOGL__yoink_from_lwjglgamedev__etc___.xml" afterDir="false" />
+    <list default="true" id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="smol fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/VectorC2d.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/VectorC2d.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DiffImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DiffImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DirectGif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DirectGif89Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Encoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifColorTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifColorTable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifPixelsEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifPixelsEncoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImageFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImageFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImagePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ImagePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$IndexGif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$IndexGif89Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap$ColorRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap$ColorRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Render/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render/DrawingPanel.java" afterDir="false" />
@@ -261,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684859338302</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="smol fix">
+      <created>1684979158995</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1684979158995</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -297,6 +314,7 @@
     <MESSAGE value="bad but works" />
     <MESSAGE value="launch functions + heyyyy terminal velocity works now" />
     <MESSAGE value="Hopefully made better rectangle detection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hopefully made better rectangle detection" />
+    <MESSAGE value="smol fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="smol fix" />
   </component>
 </project>

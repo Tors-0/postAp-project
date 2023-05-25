@@ -150,7 +150,7 @@ public final class DrawingPanel extends FileFilter
     public static final String MULTIPLE_PROPERTY   = "drawingpanel.multiple";
     public static final String SAVE_PROPERTY       = "drawingpanel.save";
     public static final String ANIMATION_FILE_NAME = "_drawingpanel_animation_save.txt";
-    private static final String TITLE              = "Panel - " + NAME;
+    private static final String TITLE              = NAME;
     private static final String COURSE_WEB_SITE = "http://www.cs.washington.edu/education/courses/cse142/12sp/drawingpanel.txt";
     private static final Color GRID_LINE_COLOR     = new Color(64, 64, 64, 128);
     private static final int GRID_SIZE             = 10;      // 10px between grid lines
@@ -598,7 +598,7 @@ public final class DrawingPanel extends FileFilter
         int x = e.getX() / currentZoom;
         int y = e.getY() / currentZoom;
         Player.mousePos = new Vector2d(x,y);
-        //setStatusBarText("(" + x + ", " + y + ")");
+        //setStatusBarText(Player.status + "mouse(" + x + " " + y + ")");
     }
 
     // run on shutdown to save the image
