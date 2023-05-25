@@ -21,9 +21,6 @@ public class Client {
     public static final GameSpace scene = new GameSpace(WIDTH,HEIGHT);
     // Creates the player object
     public static Player player = new Player(new Vector2d(WIDTH/2,HEIGHT/2),2);
-    public static VerlObj obj1 = new VerlObj();
-    public static VerlObj obj2 = new VerlObj(new Vector2d(500, 250), 50, 10.0f);
-
     // Creates the drawing panel object
     public static DrawingPanel panel = new DrawingPanel(WIDTH, HEIGHT);
     // Obtains the graphics object that allows for drawing on the panel

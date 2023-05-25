@@ -598,7 +598,6 @@ public final class DrawingPanel extends FileFilter
         int x = e.getX() / currentZoom;
         int y = e.getY() / currentZoom;
         Player.mousePos = new Vector2d(x,y);
-        //setStatusBarText(Player.status + "mouse(" + x + " " + y + ")");
     }
 
     // run on shutdown to save the image

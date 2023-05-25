@@ -3,6 +3,7 @@ package Engine;
 import Client.Client;
 import org.joml.Vector2d;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import static Client.Client.*;
@@ -14,13 +15,13 @@ public class Player {
     private Vector2d vel;
     private Vector2d acc;
     public static ArrayList<Player> players = new ArrayList<Player>();
-    private float radius = Client.playerPx / 2.0f;
-    private float deltaTime = Client.tps;
+    private final float radius = (float) (Client.playerPx / 2.0);
+    private final float deltaTime = Client.tps;
     private float mass;
     private float gravC = -1;
     public static Vector2d mousePos;
     public boolean stopYMomentum;
-    public static String status;
+
     // ------ Constructor ------ //
     public Player(Vector2d pos, float mass) {
         lastPos = pos;
@@ -32,14 +33,18 @@ public class Player {
     }
     // ------ Solver ------ //
     public static void update() {
-        panel.setStatusBarText("pos" + player.currPos.toString() + ",vel" + player.getVel().toString() + ",acc"
-                + player.getAcc().toString() + "mou" + mousePos.toString());
-        for (Player p : players) {
+        panel.setStatusBarText("pos" + vecStr(player.currPos) + ",vel" + vecStr(player.getVel()) + ",acc"
+                + vecStr(player.getAcc()));
+        players.forEach(p -> {
             p.physics();
             p.boundaries();
             p.rectCollision();
             p.playerCollision();
-        }
+        });
+    }
+    private static DecimalFormat df = new DecimalFormat("#.###");
+    private static String vecStr(Vector2d v) {
+        return "(" + df.format(v.x) + ", " + df.format(v.y) + ")";
     }
     public void physics() {
         stopYMomentum = false;
@@ -60,16 +65,16 @@ public class Player {
         }
     }
     public void boundaries() {
-            if (currPos.y < radius) { // test lower boundary
-                currPos.y = lastPos.y;
+            if (currPos.y < 7) { // test lower boundary
+                currPos.y = 7;
             } else if (currPos.y > HEIGHT - radius) { // test upper boundary
-                currPos.y = lastPos.y;
+                currPos.y = HEIGHT - radius;
             }
             // else-ifs to save time because it's not possible to be in two places at once
             if (currPos.x < radius) { // test left boundary
-                currPos.x = lastPos.x;
-            } else if (currPos.x > WIDTH - radius) { // test right boundary
-                currPos.x = lastPos.x;
+                currPos.x = radius;
+            } else if (currPos.x > WIDTH - 7) { // test right boundary
+                currPos.x = WIDTH - 7;
             }
     }
 
