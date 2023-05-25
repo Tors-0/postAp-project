@@ -52,7 +52,7 @@ public class Player
         players.forEach(p -> {
             p.stopYMomentum = false;
             p.limitVel();
-            p.lastPos = new Vector2d(p.currPos.x, p.currPos.y);
+            p.lastPos = new Vector2d(p.currPos);
             p.currPos.add(p.vel);
             p.vel.add(p.acc);
             p.acc.y = ((p.acc.y - p.gravC) * 0.85) + p.gravC; // normalize vertical acceleration towards gravC

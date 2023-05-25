@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="improve tVel calc + launch vel not affected by distance to cursor">
+    <list default="true" id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/Client/OpenGLClientTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Render/OpenGl/OpenGlRenderer2d.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -15,8 +15,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Client/Client2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/VectorC2d.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/VectorC2d.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Environment/GameSpace.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
@@ -296,9 +298,5 @@
     <MESSAGE value="launch functions + heyyyy terminal velocity works now" />
     <MESSAGE value="Hopefully made better rectangle detection" />
     <option name="LAST_COMMIT_MESSAGE" value="Hopefully made better rectangle detection" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

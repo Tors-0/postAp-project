@@ -30,7 +30,7 @@ public class Client {
     static Graphics g = panel.getGraphics();
 
     public static final int fps = 15;
-    public static final int tps = 45;
+    public static final int tps = 30;
     public static void main(String[] args){
 
         scene.newRectangle(600,250,201,30);
@@ -55,11 +55,12 @@ public class Client {
     static int offset = (int) Math.round(playerPx / 2.0);
     public static void update() {
         // Graphics API: https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
-        Vector2d coord = player.getPos();
+
         panel.clearWithoutRepaint();
         for (Player o : players) {
             int offset = (int) o.getRadius();
-            panel.getGraphics().drawOval((int) o.getPos().x, (int) (HEIGHT - o.getPos().y - (2 * offset)),2 * offset,2 * offset);
+            Vector2d coord = o.getPos();
+            g.drawOval((int) Math.round(coord.x)-offset,HEIGHT - (int) Math.round(coord.y)-offset,playerPx,playerPx);
         }
         scene.GameRectObjs.forEach(current -> {
             g.drawRect(current.x1, HEIGHT - current.y1 - current.getHeight(), current.getWidth(), current.getHeight());
