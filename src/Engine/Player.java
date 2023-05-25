@@ -3,17 +3,11 @@ package Engine;
 import Client.Client;
 import org.joml.Vector2d;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.*;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import static Client.Client.*;
 
-public class Player
-    implements ImageObserver {
+public class Player {
     // ------ Variables ------ //
     private Vector2d lastPos;
     private Vector2d currPos;
@@ -27,12 +21,6 @@ public class Player
     public static Vector2d mousePos;
     public boolean stopYMomentum;
     public static String status;
-    // ------ Texture ------ //
-    public static Image texture = Toolkit.getDefaultToolkit().getImage("textures/player.png");
-    @Override
-    public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-        return false;
-    }
     // ------ Constructor ------ //
     public Player(Vector2d pos, float mass) {
         lastPos = pos;
@@ -44,10 +32,14 @@ public class Player
     }
     // ------ Solver ------ //
     public static void update() {
-        panel.setStatusBarText("pos" + player.currPos.toString() + ",vel" + player.getVel().toString() + ",acc" + player.getAcc().toString() + "mou" + mousePos.toString());
-        physics();
-        rectCollision();
-        playerCollision();
+        panel.setStatusBarText("pos" + player.currPos.toString() + ",vel" + player.getVel().toString() + ",acc"
+                + player.getAcc().toString() + "mou" + mousePos.toString());
+        for (Player p : players) {
+            p.physics();
+            p.boundaries();
+            p.rectCollision();
+            p.playerCollision();
+        }
     }
     public void physics() {
         stopYMomentum = false;
@@ -67,38 +59,18 @@ public class Player
             vel.div(absVel).mul(10);
         }
     }
-    public static void boundaries() {
-        players.forEach(p -> {
-            if (p.currPos.y < p.radius) { // test lower boundary
-                p.currPos.y = p.lastPos.y;
-                /*
-                p.vel.y *= -0.7f;
-                p.vel.x *= 0.9f;
-                p.currPos.y = p.radius;
-                 */
-            } else if (p.currPos.y > HEIGHT - p.radius) { // test upper boundary
-                p.currPos.y = p.lastPos.y;
-                /*
-                p.vel.y *= -0.9f;
-                p.vel.x *= 0.9f;
-                p.currPos.y = ((p.currPos.y - HEIGHT) * -1) + HEIGHT;
-                 */
+    public void boundaries() {
+            if (currPos.y < radius) { // test lower boundary
+                currPos.y = lastPos.y;
+            } else if (currPos.y > HEIGHT - radius) { // test upper boundary
+                currPos.y = lastPos.y;
             }
             // else-ifs to save time because it's not possible to be in two places at once
-            if (p.currPos.x < p.radius) { // test left boundary
-                p.currPos.x = p.lastPos.x;
-                /*
-                p.vel.x *= -0.9f;
-                p.vel.y *= 0.9f;
-                p.currPos.x *= -1; */
-            } else if (p.currPos.x > WIDTH - p.radius) { // test right boundary
-                p.currPos.x = p.lastPos.x;
-                /*
-                p.vel.x *= -0.9f;
-                p.vel.y *= 0.9f;
-                p.currPos.x = ((p.currPos.x - WIDTH) * -1) + WIDTH; */
+            if (currPos.x < radius) { // test left boundary
+                currPos.x = lastPos.x;
+            } else if (currPos.x > WIDTH - radius) { // test right boundary
+                currPos.x = lastPos.x;
             }
-        });
     }
 
     public void rectCollision() {
@@ -125,11 +97,10 @@ public class Player
                     if (currObj.x1 < p.currPos.x && p.currPos.x < currObj.x2) {
                         p.currPos.y = p.lastPos.y;
                     }
-                }
-            });
+                }*/
         });
     }
-    public static void playerCollision() {
+    public void playerCollision() {
 
     }
     // ------ Getters + Setters ------ //
@@ -150,7 +121,7 @@ public class Player
     public void setTempPos(Vector2d newTP) {lastPos = newTP;}
     public void setAcc(Vector2d newAcc) {acc = newAcc;}
     // ------ Uniques ------ //
-    /* Keypress detection is in Render.DrawingPanel @ ~line 100 */
+    /* Key-press detection is in Render.DrawingPanel at about line 100 */
     public void velocirate(Vector2d vel) {
         this.vel.add(vel);
     }

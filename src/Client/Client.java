@@ -51,6 +51,7 @@ public class Client {
         // Graphics API: https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics.html
 
         panel.clearWithoutRepaint();
+        panel.setBackground(Color.pink);
         for (Player o : players) {
             int offset = (int) o.getRadius();
             Vector2d coord = o.getPos();
