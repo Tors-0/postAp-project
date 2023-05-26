@@ -36,9 +36,9 @@ public class Player {
         panel.setStatusBarText("pos" + vecStr(player.currPos) + ",vel" + vecStr(player.getVel()) + ",acc"
                 + vecStr(player.getAcc()));
         players.forEach(p -> {
+            p.rectCollision();
             p.physics();
             p.boundaries();
-            p.rectCollision();
             p.playerCollision();
         });
     }
@@ -54,9 +54,9 @@ public class Player {
         acc.y = ((acc.y - gravC) * 0.85) + gravC; // normalize vertical acceleration towards gravC
         acc.x *= 0.95; // normalize horizontal acceleration to zero
         vel.mul(0.99f);
-        setPos(getPos().add(getVel())); // TODO WHY THIS LINE NO WORKY :(
-        currPos.x += getVel().x;
-        currPos.y += getVel().y;
+        setPos(getPos().add(getVel())); // TODO DONT DELETE THIS
+        currPos.x += getVel().x; // OR THIS
+        currPos.y += getVel().y; // OR THIS
     }
     public void limitVel() {
         float absVel = (float) Math.sqrt(Math.pow(vel.x, 2) + Math.pow(vel.y, 2));
@@ -82,17 +82,26 @@ public class Player {
         scene.GameRectObjs.forEach(rec -> {
             if (rec.x1 < currPos.x && currPos.x < rec.x2 && rec.y1 < currPos.y && currPos.y < rec.y2) {
                 // check if player is inside the rect
-                //currPos = new Vector2d(lastPos);
+                Vector2d newPos = new Vector2d(currPos);
                 if (lastPos.y > rec.y2) { // check if player was above rectangle
-                    currPos.y = rec.y2 + radius; // put player on top of rectangle
+                    newPos.y = (rec.y2 + radius); // put player on top of rectangle
+                    vel.y = 0;
+                    System.out.println("top detect");
                 } else if (lastPos.y < rec.y1) { // check if player was below rect
-                    currPos.y = rec.y1 - radius; // put player on bottom of rect
+                    newPos.y = rec.y1 - radius; // put player on bottom of rect
+                    vel.y = 0;
+                    System.out.println("bottom detect");
                 }
                 if (lastPos.x < rec.x1) { // check if player was left of rect
-                    currPos.x = rec.x1 - radius; // put player to left of rect
+                    newPos.x = rec.x1 - radius; // put player to left of rect
+                    vel.x = 0;
+                    System.out.println("left detect");
                 } else if (lastPos.x > rec.x2) { // check if player was right of rect
-                    currPos.x = rec.x2 + radius; // put player to right of rect
+                    newPos.x = rec.x2 + radius; // put player to right of rect
+                    vel.x = 0;
+                    System.out.println("right detect");
                 }
+                currPos.set(newPos);
             }
             /* old code
                 if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) { // check left edge

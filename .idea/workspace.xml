@@ -7,9 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="meh">
+    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="ALPHA 0.01">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
     </list>
     <list id="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" name="Changes by rae" comment="" />
@@ -259,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684979158995</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="ALPHA 0.01">
+      <created>1685063129494</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1685063129494</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -299,6 +307,7 @@
     <MESSAGE value="launch functions + heyyyy terminal velocity works now" />
     <MESSAGE value="Hopefully made better rectangle detection" />
     <MESSAGE value="smol fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="smol fix" />
+    <MESSAGE value="ALPHA 0.01" />
+    <option name="LAST_COMMIT_MESSAGE" value="ALPHA 0.01" />
   </component>
 </project>

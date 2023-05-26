@@ -26,8 +26,8 @@ public class Client {
     // Obtains the graphics object that allows for drawing on the panel
     static Graphics2D g = panel.getGraphics();
 
-    public static final int fps = 10;
-    public static final int tps = 20;
+    public static final int fps = 15;
+    public static final int tps = 30;
     public static void main(String[] args){
 
         scene.newRectangle(600,250,201,30);
