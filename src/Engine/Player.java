@@ -79,9 +79,20 @@ public class Player {
     }
 
     public void rectCollision() {
-        scene.GameRectObjs.forEach(r -> {
-            if (r.x1 < currPos.x && currPos.x < r.x2 && r.y1 < currPos.y && currPos.y < r.y2) {
-                currPos = new Vector2d(lastPos);
+        scene.GameRectObjs.forEach(rec -> {
+            if (rec.x1 < currPos.x && currPos.x < rec.x2 && rec.y1 < currPos.y && currPos.y < rec.y2) {
+                // check if player is inside the rect
+                //currPos = new Vector2d(lastPos);
+                if (lastPos.y > rec.y2) { // check if player was above rectangle
+                    currPos.y = rec.y2 + radius; // put player on top of rectangle
+                } else if (lastPos.y < rec.y1) { // check if player was below rect
+                    currPos.y = rec.y1 - radius; // put player on bottom of rect
+                }
+                if (lastPos.x < rec.x1) { // check if player was left of rect
+                    currPos.x = rec.x1 - radius; // put player to left of rect
+                } else if (lastPos.x > rec.x2) { // check if player was right of rect
+                    currPos.x = rec.x2 + radius; // put player to right of rect
+                }
             }
             /* old code
                 if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) { // check left edge
@@ -131,8 +142,11 @@ public class Player {
         this.vel.add(vel);
     }
     public void launch() {
-        vel = new Vector2d(mousePos.x-currPos.x,(HEIGHT - mousePos.y)-currPos.y).div(Math.sqrt(Math.pow(mousePos.x-currPos.x, 2)
-                + Math.pow((HEIGHT - mousePos.y) - currPos.y, 2))).mul(15);
+        vel = new Vector2d(mousePos.x-currPos.x,(HEIGHT - mousePos.y)-currPos.y);
+        float absVel = (float) Math.sqrt(Math.pow(vel.x, 2) + Math.pow(vel.y, 2));
+        if (absVel > 10) {
+            vel.div(Math.sqrt(Math.pow(mousePos.x-currPos.x, 2) + Math.pow((HEIGHT - mousePos.y) - currPos.y, 2))).mul(15);
+        }
         limitVel();
     }
 }

@@ -10,21 +10,7 @@
     <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="meh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DiffImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DiffImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DirectGif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$DirectGif89Frame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Encoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Encoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$Gif89Frame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifColorTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifColorTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifPixelsEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$GifPixelsEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$IndexGif89Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$IndexGif89Frame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap$ColorRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap$ColorRecord.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$ReverseColorMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Engine/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Render/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Render/DrawingPanel.java" afterDir="false" />
     </list>
     <list id="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" name="Changes by rae" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +59,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -127,7 +113,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6f15086e-ab37-4d95-8b55-7eac57b75338" name="Changes" comment="" />
+      <changelist id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="meh" />
       <created>1683731490176</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
