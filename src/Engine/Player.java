@@ -101,7 +101,7 @@ public class Player {
                     vel.x = 0;
                     System.out.println("right detect");
                 }
-                currPos.set(newPos);
+                currPos = newPos;
             }
             /* old code
                 if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) { // check left edge
