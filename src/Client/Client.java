@@ -1,18 +1,13 @@
 package Client;
 
-import Engine.Player;
 import Render.DrawingPanel;
 import Environment.GameSpace;
-import VerletEngine.VerlObj;
 import org.joml.Vector2d;
 
 import java.awt.*;
-import java.awt.image.ImageObserver;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import static Engine.Player.players;
 
 public class Client {
     public static final int WIDTH = 1280;
@@ -20,7 +15,7 @@ public class Client {
     // creates the physics scene with the specified width and height
     public static final GameSpace scene = new GameSpace(WIDTH,HEIGHT);
     // Creates the player object
-    public static Player player = new Player(new Vector2d(WIDTH/2,HEIGHT/2),2);
+    public static Player player = new Player(WIDTH/2,HEIGHT/2,2);
     // Creates the drawing panel object
     public static DrawingPanel panel = new DrawingPanel(WIDTH, HEIGHT);
     // Obtains the graphics object that allows for drawing on the panel
@@ -49,7 +44,7 @@ public class Client {
 
         panel.clearWithoutRepaint();
         panel.setBackground(Color.pink);
-        for (Player o : players) {
+        for (Player o : Player.players) {
             int offset = (int) o.getRadius();
             Vector2d coord = o.getPos();
             g.drawOval((int) Math.round(coord.x)-offset,HEIGHT - (int) Math.round(coord.y)-offset,playerPx,playerPx);

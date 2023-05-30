@@ -26,7 +26,7 @@ Recent features:
 
 import Client.Client;
 import Client.Client2;
-import Engine.Player;
+import Client.Player;
 import org.joml.Vector2d;
 
 import java.awt.AlphaComposite;
