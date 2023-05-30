@@ -44,11 +44,9 @@ public class Client {
 
         panel.clearWithoutRepaint();
         panel.setBackground(Color.pink);
-        for (Player o : Player.players) {
-            int offset = (int) o.getRadius();
-            Vector2d coord = o.getPos();
+            int offset = (int) player.getRadius();
+            Vector2d coord = player.getPos();
             g.drawOval((int) Math.round(coord.x)-offset,HEIGHT - (int) Math.round(coord.y)-offset,playerPx,playerPx);
-        }
         scene.GameRectObjs.forEach(current -> {
             g.drawRect(current.x1, HEIGHT - current.y1 - current.getHeight(), current.getWidth(), current.getHeight());
         });

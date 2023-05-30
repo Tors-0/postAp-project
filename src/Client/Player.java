@@ -37,12 +37,10 @@ public class Player {
     public static void update() {
         panel.setStatusBarText("pos" + vecStr(player.currX,player.currY) + ",vel" + vecStr(player.velX,player.velY) + ",acc"
                 + vecStr(player.accX,player.accY));
-        players.forEach(p -> {
-            p.rectCollision();
-            p.physics();
-            p.boundaries();
-            p.playerCollision();
-        });
+        player.rectCollision();
+        player.physics();
+        player.boundaries();
+        player.playerCollision();
     }
     private static DecimalFormat df = new DecimalFormat("#.###");
     private static String vecStr(float x, float y) {
