@@ -77,18 +77,18 @@ public class Player {
                 currX = WIDTH - 7;
             }
     }
-
+    float newX, newY;
     public void rectCollision() {
         scene.GameRectObjs.forEach(rec -> {
             if (rec.x1 < currX && currX < rec.x2 && rec.y1 < currY && currY < rec.y2) {
                 // check if player is inside the rect
-                float newX = currX, newY = currY;
+                newX = currX; newY = currY;
                 if (lastY > rec.y2) { // check if player was above rectangle
-                    newY = (rec.y2 + radius); // put player on top of rectangle
+                    newY = rec.y2 - radius; // put player on top of rectangle
                     velY = 0;
                     System.out.println("top detect");
                 } else if (lastY < rec.y1) { // check if player was below rect
-                    newY = rec.y1 - radius; // put player on bottom of rect
+                    newY = rec.y1 + radius; // put player on bottom of rect
                     velY = 0;
                     System.out.println("bottom detect");
                 }
@@ -101,7 +101,7 @@ public class Player {
                     velX = 0;
                     System.out.println("right detect");
                 }
-                currX = newX; currY = newY;
+                player.currX = newX; player.currY = newY;
             }
             /* old code
                 if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) { // check left edge

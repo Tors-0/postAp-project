@@ -7,8 +7,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="ALPHA 0.01 patch 2 - hopeful">
+    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="ALPHA 0.01 patch 3 - functional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Player.java" afterDir="false" />
     </list>
     <list id="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" name="Changes by rae" comment="" />
@@ -282,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685462924265</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="ALPHA 0.01 patch 3 - functional">
+      <created>1685463853619</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1685463853619</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -325,6 +340,7 @@
     <MESSAGE value="ALPHA 0.01" />
     <MESSAGE value="ALPHA 0.01.1 - rectCollision works kinds but only for the bottom" />
     <MESSAGE value="ALPHA 0.01 patch 2 - hopeful" />
-    <option name="LAST_COMMIT_MESSAGE" value="ALPHA 0.01 patch 2 - hopeful" />
+    <MESSAGE value="ALPHA 0.01 patch 3 - functional" />
+    <option name="LAST_COMMIT_MESSAGE" value="ALPHA 0.01 patch 3 - functional" />
   </component>
 </project>
