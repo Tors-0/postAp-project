@@ -1,31 +1,53 @@
 package Render.OpenGl;
 
-import org.joml.*;
-import org.lwjgl.*;
+import org.joml.Matrix4d;
+import org.joml.Matrix4f;
+import org.joml.Matrix4x3f;
+import org.joml.Vector3d;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.PointerBuffer;
 import org.lwjgl.glfw.*;
-import org.lwjgl.opengl.*;
-import org.lwjgl.system.*;
-import org.joml.Math;
+import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.GLCapabilities;
+import org.lwjgl.opengl.GLUtil;
+import org.lwjgl.system.Callback;
+import org.lwjgl.system.MemoryStack;
 
 import java.io.IOException;
-import java.nio.*;
+import java.nio.ByteBuffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 
-import static Render.OpenGl.IOUtils.*;
+import static Render.OpenGl.IOUtils.ioResourceToByteBuffer;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.ARBFragmentShader.GL_FRAGMENT_SHADER_ARB;
 import static org.lwjgl.opengl.ARBShaderObjects.*;
 import static org.lwjgl.opengl.ARBVertexShader.GL_VERTEX_SHADER_ARB;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.stb.STBImage.*;
-import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryUtil.NULL;
+import static org.lwjgl.system.MemoryUtil.memAddress;
 
 public class OpenGlRenderer2d {
-    long window;
-    int winWidth = 1920;
-    int winHeight = 1080;
-    int fbWidth = 1024;
-    int fbHeight = 768;
-    float fov = 30.0f, rotX, rotY;
+
+    int width = 1080;
+    int height = 512;
+    int fbWidth = 880;
+    int fbHeight = 512;
+    int fbXOffset = 200;
+    int fbYOffset = 0;
+    long window = glfwCreateWindow(width, height, "Wacky Wonky Goofyness", glfwGetPrimaryMonitor(), NULL);
+    float fov = 60, rotX, rotY;
+    Vector3d cameraPos = new Vector3d(0.0f, 0.0f,3.0f);
+    Vector3d cameraTarget = new Vector3d(0.0f, 0.0f, 0.0f);
+    Vector3d cameraDirection = new Vector3d(cameraPos.sub(cameraTarget));
+    Vector3d up = new Vector3d(0.0f, 1.0f, 0.0f);
+    Vector3d cameraRight = new Vector3d(up.cross(cameraDirection));
+    Vector3d cameraUp = new Vector3d(cameraDirection.cross(cameraRight));
+    Matrix4d view = new Matrix4d ();
+    static float radius = 10.0f;
+    float camX = (float) (Math.sin(glfwGetTime()) * radius);
+    float camZ = (float) (Math.cos(glfwGetTime()) * radius);
 
     ByteBuffer vertices;
     int invViewProjUniform;
@@ -42,14 +64,16 @@ public class OpenGlRenderer2d {
     GLFWScrollCallback sCallback;
     Callback debugProc;
 
-    private void init() throws IOException {
+    void init() throws IOException {
+
+
         if (!glfwInit())
             throw new IllegalStateException("Unable to initialize GLFW");
 
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-        window = glfwCreateWindow(winWidth, winHeight, "Spherical environment mapping demo", NULL, NULL);
+        window = glfwCreateWindow(width, height, "Spherical environment mapping demo", NULL, NULL);
         if (window == NULL)
             throw new AssertionError("Failed to create the GLFW window");
 
@@ -69,7 +93,7 @@ public class OpenGlRenderer2d {
             public void invoke(long window, int key, int scancode, int action, int mods) {
                 if (action != GLFW_RELEASE)
                     return;
-                if (key == GLFW_KEY_ESCAPE) {
+                if (key == GLFW_KEY_0) {
                     glfwSetWindowShouldClose(window, true);
                 }
             }
@@ -77,10 +101,10 @@ public class OpenGlRenderer2d {
         glfwSetCursorPosCallback(window, cpCallback = new GLFWCursorPosCallback() {
             @Override
             public void invoke(long window, double x, double y) {
-                float nx = (float) x / winWidth * 2.0f - 1.0f;
-                float ny = (float) y / winHeight * 2.0f - 1.0f;
-                rotX = ny * (float) Math.PI * 0.5f;
-                rotY = nx * (float) Math.PI;
+                float nx = (float) x / width * 2.0f - 1.0f;
+                float ny = (float) y / height * 2.0f - 1.0f;
+                rotX = ny * (float)Math.PI * 0.5f;
+                rotY = nx * (float)Math.PI;
             }
         });
         glfwSetScrollCallback(window, sCallback = new GLFWScrollCallback() {
@@ -90,25 +114,26 @@ public class OpenGlRenderer2d {
                     fov *= 1.05f;
                 else
                     fov *= 1f/1.05f;
-                if (fov < 10.0f)
-                    fov = 10.0f;
+                if (fov < 1.0f)
+                    fov = 1.0f;
                 else if (fov > 120.0f)
                     fov = 120.0f;
             }
         });
 
         GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-        glfwSetWindowPos(window, (vidmode.width() - winWidth) / 2, (vidmode.height() - winHeight) / 2);
+        glfwSetWindowPos(window, (vidmode.width() - width) / 2, (vidmode.height() - height) / 2);
         glfwMakeContextCurrent(window);
         glfwSwapInterval(0);
         glfwShowWindow(window);
-        glfwSetCursorPos(window, winWidth / 2, winHeight / 2);
+        glfwSetCursorPos(window, width / 2, height / 2);
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
         try (MemoryStack frame = MemoryStack.stackPush()) {
             IntBuffer framebufferSize = frame.mallocInt(2);
             nglfwGetFramebufferSize(window, memAddress(framebufferSize), memAddress(framebufferSize) + 4);
-            winWidth = framebufferSize.get(0);
-            winHeight = framebufferSize.get(1);
+            width = framebufferSize.get(0);
+            height = framebufferSize.get(1);
         }
 
         caps = GL.createCapabilities();
@@ -161,8 +186,8 @@ public class OpenGlRenderer2d {
 
     void createProgram() throws IOException {
         int program = glCreateProgramObjectARB();
-        int vshader = createShader("shaders/environment.vs", GL_VERTEX_SHADER_ARB);
-        int fshader = createShader("shaders/environment.fs", GL_FRAGMENT_SHADER_ARB);
+        int vshader = createShader("shaders/environment.vsh", GL_VERTEX_SHADER_ARB);
+        int fshader = createShader("shaders/environment.fsh", GL_FRAGMENT_SHADER_ARB);
         glAttachObjectARB(program, vshader);
         glAttachObjectARB(program, fshader);
         glLinkProgramARB(program);
@@ -190,7 +215,7 @@ public class OpenGlRenderer2d {
         IntBuffer h = BufferUtils.createIntBuffer(1);
         IntBuffer comp = BufferUtils.createIntBuffer(1);
         ByteBuffer image;
-        imageBuffer = ioResourceToByteBuffer("textures/environment.png", 8 * 1024);
+        imageBuffer = ioResourceToByteBuffer("textures/HDRI-II.hdr", 8 * 1024);
         if (!stbi_info_from_memory(imageBuffer, w, h, comp))
             throw new IOException("Failed to read image information: " + stbi_failure_reason());
         image = stbi_load_from_memory(imageBuffer, w, h, comp, 3);
@@ -201,10 +226,16 @@ public class OpenGlRenderer2d {
     }
 
     void update() {
-        projMatrix.setPerspective((float) Math.toRadians(fov), (float) winWidth / winHeight, 0.01f, 100.0f);
+        projMatrix.setPerspective((float) Math.toRadians(fov), (float) width / height, 0.01f, 100.0f);
         viewMatrix.rotationX(rotX).rotateY(rotY);
         projMatrix.invertPerspectiveView(viewMatrix, invViewProjMatrix);
         glUniformMatrix4fvARB(invViewProjUniform, false, invViewProjMatrix.get(matrixBuffer));
+
+        view = view.lookAt(
+                new Vector3d(camX, 0.0f, camZ),
+                new Vector3d(0.0f, 0.0f, 0.0f),
+                new Vector3d(0.0f, 1.0f, 0.0f)
+        );
     }
 
     static void render() {
@@ -215,7 +246,7 @@ public class OpenGlRenderer2d {
     void loop() {
         while (!glfwWindowShouldClose(window)) {
             glfwPollEvents();
-            glViewport(0, 0, fbWidth, fbHeight);
+            glViewport(fbXOffset, fbYOffset, fbWidth, fbHeight);
             update();
             render();
             glfwSwapBuffers(window);

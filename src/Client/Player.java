@@ -24,7 +24,8 @@ public class Player {
     private float gravC = -1;
     public static Vector2d mousePos;
     public boolean stopYMomentum;
-
+    private int launchCool = 0;
+    private static int launchTimer = 45;
     // ------ Constructor ------ //
     public Player(float posX, float posY, float mass) {
         lastX = posX; lastY = posY;
@@ -37,6 +38,7 @@ public class Player {
     public static void update() {
         panel.setStatusBarText("pos" + vecStr(player.currX,player.currY) + ",vel" + vecStr(player.velX,player.velY) + ",acc"
                 + vecStr(player.accX,player.accY));
+        player.launchCool--;
         player.rectCollision();
         player.physics();
         player.boundaries();
@@ -80,6 +82,7 @@ public class Player {
     float newX, newY;
     public void rectCollision() {
         scene.GameRectObjs.forEach(rec -> {
+            /*
             if (rec.x1 < currX && currX < rec.x2 && rec.y1 < currY && currY < rec.y2) {
                 // check if player is inside the rect
                 newX = currX; newY = currY;
@@ -103,26 +106,26 @@ public class Player {
                 }
                 player.currX = newX; player.currY = newY;
             }
-            /* old code
-                if (Math.abs(p.currPos.x - currObj.x1) < 10 && currObj.x1 < p.currPos.x) { // check left edge
-                    if (currObj.y1 < p.currPos.y && p.currPos.y < currObj.y2) {
-                        p.currPos.x = p.lastPos.x;
+            */
+                if (Math.abs(player.currX - rec.x1) < 10 && rec.x1 < player.currX) { // check left edge
+                    if (rec.y1 < player.currY && player.currY < rec.y2) {
+                        player.currX = player.lastX;
                     }
-                } else if (Math.abs(p.currPos.x - currObj.x2) < 10 && currObj.x2 > p.currPos.x) { // check right edge
-                    if (currObj.y1 < p.currPos.y && p.currPos.y < currObj.y2) {
-                        p.currPos.x = p.lastPos.x;
+                } else if (Math.abs(player.currX - rec.x2) < 10 && rec.x2 > player.currX) { // check right edge
+                    if (rec.y1 < player.currY && player.currY < rec.y2) {
+                        player.currX = player.lastX;
                     }
-                } else if (Math.abs(p.currPos.y - p.radius - currObj.y1) < 10 && currObj.y1 - p.radius < p.currPos.y) {
+                } else if (Math.abs(player.currY - player.radius - rec.y1) < 10 && rec.y1 - player.radius < player.currY) {
                     // check bottom
-                    if (currObj.x1 < p.currPos.x && p.currPos.x < currObj.x2) {
-                        p.currPos.y = p.lastPos.y;
+                    if (rec.x1 < player.currX && player.currX < rec.x2) {
+                        player.currY = player.lastY;
                     }
-                } else if (Math.abs(p.currPos.y - currObj.y2) < 10 && currObj.y2 > p.currPos.y) {
+                } else if (Math.abs(player.currY - rec.y2) < 10 && rec.y2 > player.currY) {
                     // check top
-                    if (currObj.x1 < p.currPos.x && p.currPos.x < currObj.x2) {
-                        p.currPos.y = p.lastPos.y;
+                    if (rec.x1 < player.currX && player.currX < rec.x2) {
+                        player.currY = player.lastY;
                     }
-                }*/
+                }
         });
     }
     public void playerCollision() {
@@ -135,6 +138,11 @@ public class Player {
     public Vector2d getAcc() {
         return new Vector2d(accX, accY);
     }
+
+    /**
+     * Get the current position of the player
+     * @return Vector2d with x and y coordinates set to those of the player
+     */
     public Vector2d getPos() {
         return new Vector2d(currX,currY);
     }
@@ -158,19 +166,33 @@ public class Player {
     }
     // ------ Uniques ------ //
     /* Key-press detection is in Render.DrawingPanel at about line 100 */
+
+    /**
+     * Change to player's velocity to a new direction
+     * @param vel Vector2d containing the new directions to add to the player's movement
+     */
     public void velocirate(Vector2d vel) {
         velX += vel.x;
         velY += vel.y;
     }
+
+    /**
+     * Launch the player towards the mouse cursor, cooldown configurable
+     */
     public void launch() {
-        velX = (float) (mousePos.x-currX);
-        velY = (float) (HEIGHT - mousePos.y)-currY;
-        float absVel = (float) Math.sqrt(Math.pow(velX, 2) + Math.pow(velY, 2));
-        if (absVel > 10) {
-            float div = (float) Math.sqrt(Math.pow(mousePos.x-currX, 2) + Math.pow((HEIGHT - mousePos.y) - currY, 2));
-            velX /= div; velX *= 15;
-            velY /= div; velY *= 15;
+        if (launchCool <= 0) {
+            velX = (float) (mousePos.x - currX);
+            velY = (float) (HEIGHT - mousePos.y) - currY;
+            float absVel = (float) Math.sqrt(Math.pow(velX, 2) + Math.pow(velY, 2));
+            if (absVel > 10) {
+                float div = (float) Math.sqrt(Math.pow(mousePos.x - currX, 2) + Math.pow((HEIGHT - mousePos.y) - currY, 2));
+                velX /= div;
+                velX *= 15;
+                velY /= div;
+                velY *= 15;
+            }
+            limitVel();
+            launchCool = launchTimer;
         }
-        limitVel();
     }
 }

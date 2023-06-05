@@ -129,13 +129,15 @@ public final class DrawingPanel extends FileFilter
         public void actionPerformed(ActionEvent e) {
             System.out.println(DOWN);
             Client2.p.accelerate(new Vector2d(0,-d * 5));
-            if (!Client.player.stopYMomentum) Client.player.velocirate(new Vector2d(0,-d));
+
+            //Client.player.velocirate(new Vector2d(0,-d));
         }
     };
     private static final String FLY = "F";
     private Action fly = new AbstractAction(FLY) {
         @Override
         public void actionPerformed(ActionEvent e) {
+            System.out.println(FLY);
             Client.player.launch();
         }
     };

@@ -7,19 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="ALPHA 0.01 patch 3 - functional">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Engine/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/Render/DrawingPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/postAp-project/VerletEngine/VerlSolver.class" afterDir="false" />
+    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="fixies">
       <change beforePath="$PROJECT_DIR$/src/Client/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Player.java" afterDir="false" />
     </list>
-    <list id="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" name="Changes by rae" comment="" />
+    <list id="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" name="Changes by rae" comment="Changes by rae" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="TheSecondTime" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,14 +52,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/Users/Lewis/Desktop/Projects/postAp-project/lib/LWJGL",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Engine" />
@@ -297,7 +289,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685463853619</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fixies">
+      <created>1685978969618</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1685978969618</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Changes by rae">
+      <created>1685978994265</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1685978994265</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -316,8 +322,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="project init" />
-    <MESSAGE value="update structure" />
     <MESSAGE value="add JOGL to classpath and files" />
     <MESSAGE value="remove JOGL, yoink from lwjglgamedev, etc..." />
     <MESSAGE value="add VectorUtils.java" />
@@ -341,6 +345,8 @@
     <MESSAGE value="ALPHA 0.01.1 - rectCollision works kinds but only for the bottom" />
     <MESSAGE value="ALPHA 0.01 patch 2 - hopeful" />
     <MESSAGE value="ALPHA 0.01 patch 3 - functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="ALPHA 0.01 patch 3 - functional" />
+    <MESSAGE value="fixies" />
+    <MESSAGE value="Changes by rae" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by rae" />
   </component>
 </project>
