@@ -7,10 +7,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="fixies">
+    <list default="true" id="afbf7760-157c-40d7-800e-73102e83271b" name="Changes" comment="fixes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Environment/GameSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/GameSpace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Environment/PhysObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/PhysObj.java" afterDir="false" />
     </list>
-    <list id="499be79c-2e7d-4fc3-a6b1-240d4f8400cc" name="Changes by rae" comment="Changes by rae" />
+    <list id="2deff36b-54e8-4454-95d4-e217cdc5fcdf" name="Changes by rae" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Environment/GameSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/GameSpace.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +47,52 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Environment/GameSpace.java">
+      <ranges>
+        <range start1="5" end1="7" start2="5" end2="14" changelist="2deff36b-54e8-4454-95d4-e217cdc5fcdf" />
+        <range start1="11" end1="11" start2="18" end2="24" changelist="2deff36b-54e8-4454-95d4-e217cdc5fcdf" />
+        <range start1="14" end1="14" start2="27" end2="33" changelist="2deff36b-54e8-4454-95d4-e217cdc5fcdf" />
+        <range start1="18" end1="18" start2="37" end2="40" changelist="2deff36b-54e8-4454-95d4-e217cdc5fcdf" />
+        <range start1="19" end1="19" start2="41" end2="42" changelist="2deff36b-54e8-4454-95d4-e217cdc5fcdf" />
+        <range start1="20" end1="20" start2="43" end2="50" changelist="2deff36b-54e8-4454-95d4-e217cdc5fcdf" />
+        <range start1="21" end1="22" start2="51" end2="52" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="24" end1="26" start2="54" end2="62" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="28" end1="29" start2="64" end2="64" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/Client/Player.java">
+      <ranges>
+        <range start1="11" end1="28" start2="11" end2="28" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="29" end1="29" start2="29" end2="36" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="37" end1="37" start2="44" end2="48" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="40" end1="41" start2="51" end2="52" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="44" end1="45" start2="55" end2="55" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="46" end1="46" start2="56" end2="57" changelist="2deff36b-54e8-4454-95d4-e217cdc5fcdf" />
+        <range start1="47" end1="47" start2="58" end2="64" changelist="2deff36b-54e8-4454-95d4-e217cdc5fcdf" />
+        <range start1="50" end1="50" start2="67" end2="71" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="61" end1="61" start2="82" end2="86" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="68" end1="68" start2="93" end2="97" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="82" end1="82" start2="111" end2="115" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="84" end1="84" start2="117" end2="119" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="111" end1="112" start2="146" end2="147" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="115" end1="116" start2="150" end2="151" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="120" end1="121" start2="155" end2="156" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="125" end1="126" start2="160" end2="161" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="130" end1="131" start2="165" end2="165" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="132" end1="133" start2="166" end2="167" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="134" end1="134" start2="168" end2="173" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="137" end1="137" start2="176" end2="181" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="148" end1="148" start2="192" end2="197" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="151" end1="151" start2="200" end2="205" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="154" end1="154" start2="208" end2="213" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="158" end1="158" start2="217" end2="222" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="162" end1="162" start2="226" end2="231" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="182" end1="183" start2="251" end2="252" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+        <range start1="194" end1="195" start2="263" end2="264" changelist="afbf7760-157c-40d7-800e-73102e83271b" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -52,15 +105,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "C:/Users/Lewis/Desktop/Projects/postAp-project/lib/LWJGL",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lewis/Desktop/Projects/postAp-project/lib/LWJGL&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Engine" />
@@ -303,7 +356,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685978994265</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fixes">
+      <created>1685979352909</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1685979352909</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fixes">
+      <created>1685979588292</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1685979588292</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -314,7 +381,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="totalOverhaul" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -322,7 +401,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add JOGL to classpath and files" />
     <MESSAGE value="remove JOGL, yoink from lwjglgamedev, etc..." />
     <MESSAGE value="add VectorUtils.java" />
     <MESSAGE value="fix VectorUtils.java, implement it" />
@@ -347,6 +425,7 @@
     <MESSAGE value="ALPHA 0.01 patch 3 - functional" />
     <MESSAGE value="fixies" />
     <MESSAGE value="Changes by rae" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by rae" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>
