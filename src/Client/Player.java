@@ -54,7 +54,14 @@ public class Player {
         player.physics();
         player.boundaries();
     }
+    // Formats a given decimal to 3 decimal places
     private static DecimalFormat df = new DecimalFormat("#.###");
+    /**
+     * Formats coordinates to a String
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @return String containing formatted coordinates
+     */
     private static String vecStr(float x, float y) {
         return "(" + df.format(x) + ", " + df.format(y) + ")";
     }
